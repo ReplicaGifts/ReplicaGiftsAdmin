@@ -1,0 +1,73 @@
+<div class="container">
+  <h1>User: {{ data.user.username }}</h1>
+  <h1>Product: {{ data.product.title }}</h1>
+
+  <p>Print type: {{ data.printType }}</p>
+  <p>User Image: {{ data.userImage }}</p>
+
+  <h2>gift:</h2>
+
+  <table class="table">
+    <thead>
+      <th>Thumbnail</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Total</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let gift of data.gifts">
+        <td><img src="{{ gift.gift.thumbnail }}" alt="" srcset="" /></td>
+        <td>{{ gift.gift.name }}</td>
+        <td>{{ gift.quantity }}</td>
+        <td>{{ gift.gift.price * gift.quantity }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button
+    (click)="downloadImage(data.userImage, 'image.png')"
+    class="btn btn-primary"
+  >
+    Download Image
+  </button>
+
+  <p>Delivery Address:</p>
+
+  <table>
+    <tr>
+      <th>name</th>
+      <td>{{ data.deliveryAddress.name }}</td>
+    </tr>
+    <tr>
+      <th>email</th>
+      <td>{{ data.deliveryAddress.email }}</td>
+    </tr>
+    <tr>
+      <th>address</th>
+      <td>{{ data.deliveryAddress.address }}</td>
+    </tr>
+    <tr>
+      <th>city</th>
+      <td>{{ data.deliveryAddress.city }}</td>
+    </tr>
+    <tr>
+      <th>country</th>
+      <td>{{ data.deliveryAddress.country }}</td>
+    </tr>
+    <tr>
+      <th>postcode</th>
+      <td>{{ data.deliveryAddress.postcode }}</td>
+    </tr>
+    <tr>
+      <th>phone</th>
+      <td>{{ data.deliveryAddress.phone }}</td>
+    </tr>
+  </table>
+
+  <p>Delivery Status</p>
+  <select name="" id="">
+    <option value="">Processing</option>
+    <option value="">Out of Delivery</option>
+    <option value="">Delivered</option>
+  </select>
+</div>

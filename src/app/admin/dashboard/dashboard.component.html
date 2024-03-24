@@ -1,0 +1,52 @@
+<div class="content-data">
+  <div class="content-detail">
+    <h4>Recent Order</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Sl.No</th>
+          <th>Date</th>
+          <th>Order Id</th>
+          <th>User</th>
+          <th>Amount</th>
+          <th>View</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders; let i = index">
+          <td>{{ i + 1 }}.</td>
+          <td>{{ order.createdAt }}</td>
+          <td>{{ order.orderId }}</td>
+          <td>{{ order.user.username }}</td>
+          <td>{{ order.totalAmount }}</td>
+          <td>View</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="content-detail">
+    <h4>Completed Order</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Sl.No</th>
+          <th>Date</th>
+          <th>Order Id</th>
+          <th>User</th>
+          <th>Amount</th>
+          <th>View</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders; let i = index">
+          <td>{{ i + 1 }}.</td>
+          <td>{{ order.createdAt }}</td>
+          <td>{{ order.orderId }}</td>
+          <td>{{ order.user.username }}</td>
+          <td>{{ order.totalAmount }}</td>
+          <td>View</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

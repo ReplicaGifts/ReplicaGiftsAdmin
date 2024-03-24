@@ -1,0 +1,62 @@
+<div class="container">
+  <strong>{{ flag ? "Print Type" : "Category" }}</strong>
+
+  <div class="w-100 mt-4">
+    <div class="form-outline">
+      <label class="form-label"
+        >Enter {{ flag ? "Print Type" : "category" }} name</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        placeholder="{{ flag ? 'Print Type' : 'category' }}"
+        [(ngModel)]="data.categoryName"
+      />
+    </div>
+  </div>
+
+  <strong>Upload Thumbnail</strong>
+
+  <div class="my-4">
+    <input
+      type="file"
+      class="form-control input-file"
+      (change)="addThub($event)"
+    />
+  </div>
+
+  <button
+    *ngIf="!showUpdate"
+    class="btn btn-primary w-100 my-4"
+    (click)="submit()"
+  >
+    Submit
+  </button>
+  <ng-container *ngIf="showUpdate">
+    <button class="btn btn-primary w-100 my-4" (click)="update()">
+      Update
+    </button>
+    <button class="btn btn-primary w-100 my-1" (click)="close()">Close</button>
+  </ng-container>
+  <table>
+    <thead>
+      <th>_id</th>
+      <th>Name</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cate of categories">
+        <td>{{ cate._id }}</td>
+        <td>{{ cate.categoryName }}</td>
+        <td>
+          <a (click)="edit(cate)"
+            ><i class="bi bi-pencil-square px-4 text-success pointer"></i
+          ></a>
+          <a (click)="delete(cate._id)"
+            ><i class="bi bi-trash px-4 text-danger pointer"></i
+          ></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

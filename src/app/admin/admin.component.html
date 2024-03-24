@@ -1,0 +1,106 @@
+<main class="main">
+  <!--=============== BREADCRUMB ===============-->
+  <!-- <section class="breadcrumb">
+        <ul class="breadcrumb__list flex container">
+          <li><a href="index.html" class="breadcrumb__link">Home</a></li>
+          <li><span class="breadcrumb__link">></span></li>
+          <li><span class="breadcrumb__link">Account</span></li>
+        </ul>
+      </section> -->
+
+  <div class="main-content">
+    <div class="sidebar">
+      <h3>
+        <img
+          class="icon-big"
+          src="../../../assets/admin-assets/view-dashboard.svg"
+          alt="Icon"
+        />Dashboard
+      </h3>
+      <ul>
+        <li>
+          <a class="active" [routerLink]="['/admin']"
+            ><img
+              class="footer__social-icon"
+              src="../../../assets/admin-assets/home.svg"
+              alt="Icon"
+            />Home</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/admin', 'orders']">
+            <img
+              class="footer__social-icon"
+              src="../../../assets/admin-assets/account-circle-outline.svg"
+              alt="Icon"
+            />Order</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/admin', 'product-manipulate']"
+            ><img
+              class="footer__social-icon"
+              src="../../../assets/admin-assets/put-out-the-chart-svgrepo-com.svg"
+              alt="Icon"
+            />Product</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/admin', 'category']"
+            ><img
+              class="footer__social-icon"
+              src="../../../assets/admin-assets/noun-category-861639.svg"
+              alt="Icon"
+            />Category</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/admin']"
+            ><img
+              class="footer__social-icon"
+              src="../../../assets/admin-assets/file-multiple.svg"
+              alt="Icon"
+            />Users</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="content dashboard">
+      <header>
+        <nav class="nav container">
+          <a href="index.html" class="nav__logo">
+            <p class="onetext">REPLICA</p>
+            <p class="twotext">GIFTS</p>
+          </a>
+          <!-- <div class="header__top">
+                    <div class="header__container container">
+                        
+                    
+                        <div>
+                            <a href="login-register.html" class="header__top-action">
+                                Log In / Sign Up
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+        </nav>
+        <div class="account-info">
+          <img
+            class="icon-sm"
+            src="../../../assets/admin-assets/bell-ring-outline.svg"
+            alt="Notify"
+          />
+          <div class="img-cropper-sm">
+            <img
+              class="profile-pic-sm"
+              src="../../../assets/admin-assets/avatar-hombre-tupe.jpg"
+              alt="Profile Pic"
+            />
+          </div>
+          <p class="account-name">Jabez Raja</p>
+        </div>
+      </header>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</main>
