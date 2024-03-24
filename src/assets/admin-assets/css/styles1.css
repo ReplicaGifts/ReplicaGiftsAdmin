@@ -1944,6 +1944,10 @@ header {
   border-top: 1px solid var(--border-color-alt);
 }
 
+.table thead th {
+background-color: #cfcfcf;
+}
+
 .table tr:last-child {
   border-bottom: 1px solid var(--border-color-alt);
 }
@@ -3108,6 +3112,7 @@ main .dashboard .content-data {
   grid-row-gap: 50px;
   grid-column-gap: 15px;
   padding-left: 20px;
+  
 }
 
 main .dashboard .content-data .content-detail {
@@ -3118,7 +3123,7 @@ main .dashboard .content-data .content-detail {
 }
 
 main .content .content-data {
-  /* padding: 20px; */
+ 
   display: flex;
   justify-content: space-between;
 }

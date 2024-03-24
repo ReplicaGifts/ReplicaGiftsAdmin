@@ -1,0 +1,66 @@
+.container {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 800px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1, h2 {
+    margin-bottom: 10px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  img {
+    max-width: 100px;
+    height: auto;
+  }
+
+h2{
+    padding-top: 20px;
+}
+
+  p{
+    padding-top: 20px;
+  }
+  
+  /* button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  } */
+  
+  select {
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  /* .btn-primary {
+    background-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  } */
+  
+  /* Additional styles can be added as needed */
+  
