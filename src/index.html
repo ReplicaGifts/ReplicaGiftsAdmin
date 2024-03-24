@@ -60,7 +60,7 @@
     <link rel="stylesheet" href="assets/admin-assets/css/styles1.css" />
     <!--=============== NORMAL CSS ===============-->
 
-    <link rel="stylesheet" href="assets/admin-assets/css/styles1.css" />
+    <!-- <link rel="stylesheet" href="assets/admin-assets/css/styles1.css" /> -->
 
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
@@ -79,59 +79,6 @@
     <!--=============== MAIN JS ===============-->
     <script src="assets/assets/js/main.js"></script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var dropdown = document.getElementById("dropdown");
-        var categoriesLink = document.querySelector(".nav__item");
-
-        categoriesLink.addEventListener("click", function (e) {
-          e.preventDefault();
-          dropdown.style.display =
-            dropdown.style.display === "none" ? "block" : "none";
-        });
-
-        dropdown.addEventListener("click", function (e) {
-          e.stopPropagation();
-        });
-
-        document.addEventListener("click", function () {
-          dropdown.style.display = "none";
-        });
-      });
-    </script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        fetch("/api/categories")
-          .then((response) => response.json())
-          .then((categories) => {
-            const categoryContainer =
-              document.getElementById("categoryContainer");
-
-            // Populate HTML dynamically based on the received data
-            categories.forEach((category) => {
-              const categoryItem = document.createElement("a");
-              categoryItem.href = "shop.html";
-              categoryItem.classList.add("category__item", "swiper-slide");
-
-              const categoryImg = document.createElement("img");
-              categoryImg.src = category.image;
-              categoryImg.alt = "";
-              categoryImg.classList.add("category__img");
-
-              const categoryTitle = document.createElement("h3");
-              categoryTitle.classList.add("category__title");
-              categoryTitle.textContent = category.title;
-
-              categoryItem.appendChild(categoryImg);
-              categoryItem.appendChild(categoryTitle);
-              categoryContainer.appendChild(categoryItem);
-            });
-          })
-          .catch((error) => {
-            console.error("Error fetching categories:", error);
-          });
-      });
-    </script>
+ 
   </body>
 </html>

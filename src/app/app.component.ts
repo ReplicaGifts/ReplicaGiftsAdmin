@@ -1,16 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterOutlet, NavigationStart } from '@angular/router';
-import { UserAuthService } from './service/user-auth.service';
-import { HeaderComponent } from './partials/header/header.component';
-import { FooterComponent } from './partials/footer/footer.component';
-import { HeaderAllComponent } from './partials/header-all/header-all.component';
 import { filter } from 'rxjs';
 import { RouterService } from './service/router.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderAllComponent, FooterComponent],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
