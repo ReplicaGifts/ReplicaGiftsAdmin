@@ -91,6 +91,15 @@
             />Gifts</a
           >
         </li>
+        <li>
+          <a
+            class="{{ display === 'contact' ? 'active' : '' }}"
+            [routerLink]="['/admin', 'contact']"
+            (click)="setDisabledState('contact')"
+          >
+            <i class="bi bi-person"></i> Contact</a
+          >
+        </li>
       </ul>
     </div>
     <div class="content dashboard">

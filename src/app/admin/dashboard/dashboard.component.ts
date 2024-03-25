@@ -15,9 +15,10 @@ export class DashboardComponent {
   constructor(private order: CartService, private router: Router) { }
 
   orders: any[] = [];
+  reorders: any[] = [];
 
   ngOnInit() {
-    this.order.getAllFrames().subscribe(frames => { this.orders = frames });
+    this.order.getAllFrames().subscribe(frames => { this.reorders = frames.recentlyAdded; this.order = frames.remainingOrders });
   }
 
   nav(id: any) {

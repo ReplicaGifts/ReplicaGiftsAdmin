@@ -1,0 +1,27 @@
+<div class="content">
+  <h4>Orders</h4>
+  <div class="content-data">
+    <div class="content-form" id="addProductForm">
+      <table class="table">
+        <thead>
+          <th>Si.NO</th>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Subject</th>
+          <th>Message</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let con of contact; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ con.chreatedAt | date }}</td>
+            <td>{{ con.name }}</td>
+            <td>{{ con.email }}</td>
+            <td>{{ con.subject }}</td>
+            <td>{{ con.message }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

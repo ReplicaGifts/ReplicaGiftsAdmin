@@ -1,91 +1,42 @@
-<!--=============== MAIN ===============-->
-<main class="main">
-  <!--=============== BREADCRUMB ===============-->
+<div class="row my-5">
+  <div class="col-lg-6 mx-auto p-5 rounded-3" style="background-color: #fff">
+    <h2 class="text-center">Admin Login</h2>
 
-  <section class="logpad h-100">
-    <div class="container h-100">
-      <div class="row justify-content-sm-center h-100">
-        <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
-          <div class="card logfull">
-            <div class="card-body p-5">
-              <h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
-              <form
-                [formGroup]="myForm"
-                (ngSubmit)="login()"
-                class="needs-validation"
-                novalidate=""
-                autocomplete="off"
-              >
-                <div class="mb-3">
-                  <label class="mb-2 text-muted" for="email"
-                    >Email Address</label
-                  >
-                  <input
-                    id="email"
-                    type="email"
-                    class="form-control"
-                    name="email"
-                    formControlName="email"
-                    [attr.required]="true"
-                    autofocus
-                  />
-                  <div
-                    *ngIf="
-                      myForm.get('email')?.invalid &&
-                      (myForm.get('email')?.dirty ||
-                        myForm.get('email')?.touched)
-                    "
-                    style="color: red"
-                  >
-                    Enter is Valid Email Format
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <div class="mb-2 w-100">
-                    <label class="text-muted" for="password">Password</label>
-                    <a class="float-end"> Forgot Password? </a>
-                  </div>
-                  <input
-                    id="password"
-                    type="password"
-                    class="form-control"
-                    name="password"
-                    formControlName="password"
-                    [attr.required]="true"
-                  />
-                  <div
-                    *ngIf="
-                      myForm.get('password')?.invalid &&
-                      (myForm.get('password')?.dirty ||
-                        myForm.get('password')?.touched)
-                    "
-                    style="color: red"
-                  >
-                    Password is required
-                  </div>
-                </div>
-                <div class="d-flex align-items-center">
-                  <div class="form-check">
-                    <input
-                      type="checkbox"
-                      name="remember"
-                      id="remember"
-                      class="form-check-input"
-                    />
-                    <label for="remember" class="form-check-label"
-                      >Remember Me</label
-                    >
-                  </div>
-                  <button type="submit" class="btns ms-auto">Login</button>
-                </div>
-              </form>
-            </div>
-          </div>
-          <!-- <div class="text-center mt-5 text-muted">
-            Copyright &copy; 2017-2021 &mdash; Your Company
-          </div> -->
-        </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control {{
+          requiredErr[0] === 'both' || requiredErr[0] === 'email'
+            ? 'is-invalid '
+            : ''
+        }}"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        required
+        [formControl]="email"
+      />
+      <div id="emailHelp" class="form-text">
+        We'll never share your email with anyone else.
       </div>
+      <div class="invalid-feedback">{{ requiredErr[1] }}</div>
     </div>
-  </section>
-</main>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control {{
+          requiredErr[0] === 'both' || requiredErr[0] === 'password'
+            ? 'is-invalid '
+            : ''
+        }}"
+        id="exampleInputPassword1"
+        required
+        [formControl]="password"
+      />
+      <div class="invalid-feedback">{{ requiredErr[1] }}</div>
+    </div>
+
+    <button type="submit" (click)="submit()" class="btn1s">Submit</button>
+  </div>
+</div>

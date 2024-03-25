@@ -18,7 +18,7 @@ export class OrdersComponent {
   orders: any[] = [];
 
   ngOnInit() {
-    this.order.getAllFrames().subscribe(frames => { this.orders = frames; console.log(frames) });
+    this.order.getAllFrames().subscribe(frames => { this.orders = frames.orders; console.log(frames) });
   }
 
   nav(id: any) {
