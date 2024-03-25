@@ -6,6 +6,8 @@ import { CategoryService } from '../../service/category.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../../model/product.model';
 import { ProductViewComponent } from '../product-view/product-view.component';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-product',
   standalone: true,
@@ -63,6 +65,7 @@ export class ProductComponent {
   get() {
     this.product.get().subscribe((data: Product[]) => {
       this.products = data;
+      console.log(data)
     });
   }
 
@@ -88,10 +91,6 @@ export class ProductComponent {
 
 
 
-  delete(id: any) {
-    console.log(id);
-    this.product.delete(id).subscribe(data => console.log(data));
-  }
 
 
   idToUpdate: any;
@@ -100,31 +99,106 @@ export class ProductComponent {
 
   update() {
 
-    this.product.edit(this.data, this.idToUpdate).subscribe(data => { console.log(data); this.get() })
+    this.product.edit(this.data, this.idToUpdate).subscribe(data => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Product has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      this.get();
+      this.close()
+    })
 
   }
 
   close() {
-    this.router.navigate(['admin']);
+
+    const fileInput = document.getElementById('image') as HTMLInputElement;
+    if (fileInput) {
+      // Reset the file input
+      fileInput.value = '';
+    }
+
+    this.showUpdate = false;
+    this.data = {
+      title: '',
+      description: '',
+      price: 0,
+      discount: 0,
+
+      userImage: false,
+      image: "",
+
+      additionalInfo: [{
+        title: '',
+        description: ''
+      }],
+      quantity: 1,
+
+      availablePrintSize: [{
+        width: 0,
+        height: 1
+      }],
+
+      availablePrintType: [""],
+      category: ''
+    }
   }
 
   submit() {
 
     console.log(this.data)
-    this.product.addProduct(this.data).subscribe(data => console.log(data));
+    this.product.addProduct(this.data).subscribe(data => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Product has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      });
+
+      this.close();
+    }
+    );
   }
 
   edit(data: any) {
     this.data = data;
     this.showUpdate = true;
     this.idToUpdate = data._id;
+    this.data.category = data.category._id;
+
+    console.log(data)
   }
 
 
   deleteProduct(id: any) {
-    this.product.delete(id).subscribe(data => {
-      console.log(data);
-      this.get()
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.product.delete(id).subscribe(data => {
+
+          this.get()
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          });
+
+
+
+        });
+      }
     });
   }
 

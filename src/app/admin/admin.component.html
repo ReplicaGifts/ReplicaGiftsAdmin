@@ -19,7 +19,10 @@
       </h3>
       <ul>
         <li>
-          <a class="active" [routerLink]="['/admin']"
+          <a
+            class="{{ display === 'home' ? 'active' : '' }}"
+            [routerLink]="['/admin']"
+            (click)="setDisabledState('home')"
             ><img
               class="footer__social-icon"
               src="../../../assets/admin-assets/home.svg"
@@ -28,7 +31,11 @@
           >
         </li>
         <li>
-          <a [routerLink]="['/admin', 'orders']">
+          <a
+            class="{{ display === 'order' ? 'active' : '' }}"
+            [routerLink]="['/admin', 'orders']"
+            (click)="setDisabledState('order')"
+          >
             <img
               class="footer__social-icon"
               src="../../../assets/admin-assets/account-circle-outline.svg"
@@ -37,7 +44,10 @@
           >
         </li>
         <li>
-          <a [routerLink]="['/admin', 'product-manipulate']"
+          <a
+            class="{{ display === 'product' ? 'active' : '' }}"
+            [routerLink]="['/admin', 'product-manipulate']"
+            (click)="setDisabledState('product')"
             ><img
               class="footer__social-icon"
               src="../../../assets/admin-assets/put-out-the-chart-svgrepo-com.svg"
@@ -46,7 +56,10 @@
           >
         </li>
         <li>
-          <a [routerLink]="['/admin', 'category']"
+          <a
+            class="{{ display === 'cate' ? 'active' : '' }}"
+            [routerLink]="['/admin', 'category']"
+            (click)="setDisabledState('cate')"
             ><img
               class="footer__social-icon"
               src="../../../assets/admin-assets/noun-category-861639.svg"
@@ -55,7 +68,22 @@
           >
         </li>
         <li>
-          <a [routerLink]="['/admin', 'gifts']"
+          <a
+            class="{{ display === 'print' ? 'active' : '' }} text-white"
+            (click)="setDisabledState('print'); navPrintType()"
+          >
+            <img
+              class="footer__social-icon"
+              src="../../../assets/admin-assets/noun-category-861639.svg"
+              alt="Icon"
+            />Print Type
+          </a>
+        </li>
+        <li>
+          <a
+            class="{{ display === 'gift' ? 'active' : '' }}"
+            [routerLink]="['/admin', 'gifts']"
+            (click)="setDisabledState('gift')"
             ><img
               class="footer__social-icon"
               src="../../../assets/admin-assets/file-multiple.svg"
@@ -68,7 +96,7 @@
     <div class="content dashboard">
       <header>
         <nav class="nav container">
-          <a href="index.html" class="nav__logo">
+          <a [routerLink]="['admin']" class="nav__logo">
             <p class="onetext">REPLICA</p>
             <p class="twotext">GIFTS</p>
           </a>

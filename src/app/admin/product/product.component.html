@@ -222,36 +222,82 @@
       <div class="table-responsive">
         <div class="form-group">
           <label>Enter Product name:</label>
-          <input type="text" id="productName" placeholder="Placeholder" class="form-control" [(ngModel)]="data.title" />
+          <input
+            type="text"
+            id="productName"
+            placeholder="Placeholder"
+            class="form-control"
+            [(ngModel)]="data.title"
+          />
         </div>
         <div class="form-group">
           <label>Enter Product Description:</label>
-          <input type="text" id="productDescription" placeholder="Placeholder" class="form-control"
-            [(ngModel)]="data.description" />
+          <input
+            type="text"
+            id="productDescription"
+            placeholder="Placeholder"
+            class="form-control"
+            [(ngModel)]="data.description"
+          />
+        </div>
+        <div class="form-group">
+          <label for="category">Select Category</label>
+          <select
+            class="form-control"
+            id="category"
+            [(ngModel)]="data.category"
+          >
+            <option *ngFor="let print of categories" [value]="print._id">
+              {{ print.categoryName }}
+            </option>
+          </select>
         </div>
         <div class="form-group">
           <label>Enter Quantity:</label>
-          <input type="number" id="quantity" placeholder="Placeholder" class="form-control"
-            [(ngModel)]="data.quantity" />
+          <input
+            type="number"
+            id="quantity"
+            placeholder="Placeholder"
+            class="form-control"
+            [(ngModel)]="data.quantity"
+          />
         </div>
         <div class="form-group">
           <label>Enter Price:</label>
-          <input type="number" id="price" placeholder="Placeholder" class="form-control" [(ngModel)]="data.price" />
+          <input
+            type="number"
+            id="price"
+            placeholder="Placeholder"
+            class="form-control"
+            [(ngModel)]="data.price"
+          />
         </div>
         <div class="form-group">
           <label>Enter Discount Percentage:</label>
-          <input type="number" id="discount" placeholder="Placeholder" class="form-control"
-            [(ngModel)]="data.discount" />
+          <input
+            type="number"
+            id="discount"
+            placeholder="Placeholder"
+            class="form-control"
+            [(ngModel)]="data.discount"
+          />
         </div>
         <div class="form-group">
           <label>This product accept user image?</label>
-          <select class="form-control" id="userImage" [(ngModel)]="data.userImage">
-            <option *ngFor="
-              let print of [
-                { is: true, value: 'Yes' },
-                { is: false, value: 'No' }
-              ]
-            " [value]="print.is">
+          <select
+            class="form-control"
+            id="userImage"
+            [(ngModel)]="data.userImage"
+          >
+            <option
+              *ngFor="
+                let print of [
+                  { is: true, value: 'Yes' },
+                  { is: false, value: 'No' }
+                ]
+              "
+              [value]="print.is"
+            >
               {{ print.value }}
             </option>
           </select>
@@ -259,32 +305,59 @@
         <strong>Add Product images</strong>
 
         <div class="form-group">
-          <img *ngIf="showUpdate" style="max-height: 200px" [src]="data.image" />
+          <img
+            *ngIf="showUpdate"
+            style="max-height: 200px"
+            [src]="data.image"
+          />
 
           <label for="image"> Image </label>
-          <input type="file" class="form-control-file w-100 mt-1" id="image" (change)="addThub($event)" />
+          <input
+            type="file"
+            class="form-control-file w-100 mt-1"
+            id="image"
+            (change)="addThub($event)"
+          />
         </div>
 
         <br />
         <br />
         <strong>Additional Information</strong>
         <div class="">
-          <div *ngFor="let info of data.additionalInfo; let i = index" class="d-flex justify-content-between gap-4">
+          <div
+            *ngFor="let info of data.additionalInfo; let i = index"
+            class="d-flex justify-content-between gap-4"
+          >
             <div class="form-group w-100 my-3">
               <label for="infoTitle{{ i }}">Enter Info</label>
-              <input type="text" class="form-control" id="infoTitle{{ i }}" placeholder="Placeholder"
-                class="form-control" [(ngModel)]="data.additionalInfo[i].title" />
+              <input
+                type="text"
+                class="form-control"
+                id="infoTitle{{ i }}"
+                placeholder="Placeholder"
+                class="form-control"
+                [(ngModel)]="data.additionalInfo[i].title"
+              />
             </div>
 
             <div class="form-group w-100 my-3">
               <label for="infoDescription{{ i }}">Enter Description</label>
-              <input type="text" class="form-control" id="infoDescription{{ i }}" placeholder="Placeholder"
-                class="form-control" [(ngModel)]="data.additionalInfo[i].description" />
+              <input
+                type="text"
+                class="form-control"
+                id="infoDescription{{ i }}"
+                placeholder="Placeholder"
+                class="form-control"
+                [(ngModel)]="data.additionalInfo[i].description"
+              />
             </div>
           </div>
           <br />
 
-          <button class="btns1" (click)="data.additionalInfo.push({ title: '', description: '' })">
+          <button
+            class="btns1"
+            (click)="data.additionalInfo.push({ title: '', description: '' })"
+          >
             Add Info
           </button>
         </div>
@@ -293,22 +366,38 @@
         <br />
         <strong>Available Size</strong>
         <div class="">
-          <div *ngFor="let info of data.availablePrintSize; let i = index" class="d-flex justify-content-between gap-4">
+          <div
+            *ngFor="let info of data.availablePrintSize; let i = index"
+            class="d-flex justify-content-between gap-4"
+          >
             <div class="form-group w-100">
               <label for="width{{ i }}">Enter Width</label>
-              <input type="number" class="form-control" id="width{{ i }}" placeholder="Placeholder"
-                [(ngModel)]="data.availablePrintSize[i].width" />
+              <input
+                type="number"
+                class="form-control"
+                id="width{{ i }}"
+                placeholder="Placeholder"
+                [(ngModel)]="data.availablePrintSize[i].width"
+              />
             </div>
 
             <div class="form-group w-100">
               <label for="height{{ i }}">Enter Height</label>
-              <input type="number" class="form-control" id="height{{ i }}" placeholder="Placeholder"
-                [(ngModel)]="data.availablePrintSize[i].height" />
+              <input
+                type="number"
+                class="form-control"
+                id="height{{ i }}"
+                placeholder="Placeholder"
+                [(ngModel)]="data.availablePrintSize[i].height"
+              />
             </div>
           </div>
           <br />
 
-          <button class="btns1" (click)="data.availablePrintSize.push({ width: 0, height: 1 })">
+          <button
+            class="btns1"
+            (click)="data.availablePrintSize.push({ width: 0, height: 1 })"
+          >
             Add Size
           </button>
         </div>
@@ -317,14 +406,20 @@
         <br />
         <strong>Available Print Type</strong>
         <div class="">
-          <ng-container *ngFor="
-            let print of data.availablePrintType;
-            let i = index;
-            trackBy: trackByFn
-          ">
+          <ng-container
+            *ngFor="
+              let print of data.availablePrintType;
+              let i = index;
+              trackBy: trackByFn
+            "
+          >
             <div class="form-group my-3">
               <label for="printCategory{{ i }}">Select Print Type</label>
-              <select class="form-control" id="printCategory{{ i }}" [(ngModel)]="data.availablePrintType[i]">
+              <select
+                class="form-control"
+                id="printCategory{{ i }}"
+                [(ngModel)]="data.availablePrintType[i]"
+              >
                 <option *ngFor="let print of printType" [value]="print._id">
                   {{ print.categoryName }}
                 </option>
@@ -349,7 +444,7 @@
       </div>
     </div>
 
-    <div style="padding-top: 60px;">
+    <div style="padding-top: 60px">
       <h4>Products</h4>
       <div class="table-responsive">
         <table class="table text-center">
@@ -369,8 +464,12 @@
               </td>
               <td>{{ product.amount }}</td>
               <td>
-                <a (click)="edit(product)"><i class="bi bi-pencil-square px-4 text-success pointer"></i></a>
-                <a (click)="deleteProduct(product._id)"><i class="bi bi-trash px-4 text-danger pointer"></i></a>
+                <a (click)="edit(product)"
+                  ><i class="fa fa-pencil-square px-4 text-success pointer"></i
+                ></a>
+                <a (click)="deleteProduct(product._id)"
+                  ><i class="fa fa-trash px-4 text-danger pointer"></i
+                ></a>
               </td>
             </tr>
           </tbody>

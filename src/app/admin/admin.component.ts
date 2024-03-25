@@ -11,4 +11,16 @@ import { NavigationExtras, Router, RouterLink } from '@angular/router';
 })
 export class AdminComponent {
 
+  constructor(private router: Router) { }
+
+  navPrintType() {
+    this.router.navigateByUrl('/admin/category?printType=true')
+  }
+
+  display = "home"
+
+  setDisabledState(name: string) {
+    this.display = name;
+  }
+
 }

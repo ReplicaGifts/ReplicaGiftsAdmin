@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { CartService } from '../../service/cart.service';
 import { Router } from '@angular/router';
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, DatePipe],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.css'
 })
@@ -18,7 +18,7 @@ export class OrdersComponent {
   orders: any[] = [];
 
   ngOnInit() {
-    this.order.getAllFrames().subscribe(frames => { this.orders = frames });
+    this.order.getAllFrames().subscribe(frames => { this.orders = frames; console.log(frames) });
   }
 
   nav(id: any) {
