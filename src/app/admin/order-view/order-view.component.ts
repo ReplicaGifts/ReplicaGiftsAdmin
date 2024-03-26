@@ -3,12 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../../service/cart.service';
 import { Subject, takeUntil } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-order-view',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, NgIf, FormsModule],
   templateUrl: './order-view.component.html',
   styleUrl: './order-view.component.css'
 })
@@ -21,6 +22,10 @@ export class OrderViewComponent {
 
   data: any = {};
 
+  selection: any
+
+  tracking_id: any = "";
+
   ngOnInit(): void {
     this.route.params.pipe(
       takeUntil(this.unsubscribe$)
@@ -32,6 +37,8 @@ export class OrderViewComponent {
           takeUntil(this.unsubscribe$)
         ).subscribe((res: any) => {
           this.data = res;
+          this.selection = res.deliveryStatus;
+          this.tracking_id = res.tracking_id
           console.log(this.data);
         });
       }
@@ -58,6 +65,13 @@ export class OrderViewComponent {
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
     });
+  }
+
+  update(id: any, selection: any) {
+    this.frames.updateStauts(id, selection).subscribe(data => console.log(data));
+  }
+  updateTrackId(id: any, tracking: any) {
+    this.frames.updatetrackingId(id, tracking).subscribe(data => console.log(data));
   }
 
 }

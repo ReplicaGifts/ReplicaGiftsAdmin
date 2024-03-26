@@ -1,13 +1,28 @@
 <div class="container">
-  <h1>User: {{ data.user.username }}</h1>
-  <h1>Product: {{ data.product.title }}</h1>
-
-  <p>Print type: {{ data.printType }}</p>
-  <!-- <p>User Image: {{ data.userImage }}</p> -->
-
-  <h2>gift:</h2>
+  <h4>Product:</h4>
 
   <table class="table">
+    <thead>
+      <th>Thumbnail</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Total</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td><img src="{{ data.product.image }}" alt="" srcset="" /></td>
+        <td>{{ data.product.title }}</td>
+        <td>{{ data.quantity }}</td>
+        <td>{{ data.quantity * data.product.amount }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- <p>User Image: {{ data.userImage }}</p> -->
+
+  <h4 *ngIf="data.gifts.length > 0">Gift:</h4>
+
+  <table *ngIf="data.gifts.length > 0" class="table">
     <thead>
       <th>Thumbnail</th>
       <th>Name</th>
@@ -24,14 +39,24 @@
     </tbody>
   </table>
 
+  <h4>User Details</h4>
+
+  <p><strong>Name :</strong>{{ data.user.username }}</p>
+
+  <p><strong>Print Type</strong>: {{ data.printType }}</p>
+  <br />
+
   <button
+    *ngIf="data.userImage"
     (click)="downloadImage(data.userImage, 'image.png')"
     class="btns"
   >
     Download Image
   </button>
-
-  <p>Delivery Address:</p>
+  <br />
+  <br />
+  <strong>Delivery Address:</strong>
+  <br />
 
   <table>
     <tr>
@@ -64,10 +89,32 @@
     </tr>
   </table>
 
-  <p>Delivery Status</p>
-  <select name="" id="">
-    <option value="">Processing</option>
-    <option value="">Out of Delivery</option>
-    <option value="">Delivered</option>
+  <h4>Delivery Status</h4>
+  <select
+    name=""
+    id=""
+    class="w-100"
+    [(ngModel)]="selection"
+    (change)="update(data._id, selection)"
+  >
+    <option value="Processing">Processing</option>
+    <option value="Out of Delivery">Out of Delivery</option>
+    <option value="Delivered">Delivered</option>
   </select>
+
+  <br />
+  <br />
+  <h4>Update Tracking ID</h4>
+
+  <input
+    type="text"
+    class="form-control w-100"
+    placeholder="Enter tracking id"
+    [(ngModel)]="tracking_id"
+  />
+  <br />
+  <br />
+  <button class="btns" (click)="updateTrackId(data._id, tracking_id)">
+    Update trackingID
+  </button>
 </div>

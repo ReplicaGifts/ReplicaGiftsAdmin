@@ -26,6 +26,7 @@ export class AdminLoginComponent {
   submit() {
     if (this.email.valid && this.password.valid) {
       this.auth.login({ email: this.email.value, password: this.password.value }).subscribe(user => {
+        console.log(user);
         Swal.fire({
           position: "top-end",
           icon: "success",

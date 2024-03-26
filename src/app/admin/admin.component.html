@@ -122,11 +122,14 @@
                 </div> -->
         </nav>
         <div class="account-info">
-          <img
-            class="icon-sm"
-            src="../../../assets/admin-assets/bell-ring-outline.svg"
-            alt="Notify"
-          />
+          <div class="position-relative" (click)="nav()">
+            <span class="badge" *ngIf="noOfOrder > 0">{{ noOfOrder }}</span>
+            <img
+              class="icon-sm"
+              src="../../../assets/admin-assets/bell-ring-outline.svg"
+              alt="Notify"
+            />
+          </div>
           <div class="img-cropper-sm">
             <img
               class="profile-pic-sm"
@@ -134,7 +137,7 @@
               alt="Profile Pic"
             />
           </div>
-          <p class="account-name">Jabez Raja</p>
+          <p class="account-name">{{ user.username }}</p>
         </div>
       </header>
       <router-outlet></router-outlet>

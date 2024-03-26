@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../model/product.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,21 +9,9 @@ import { Product } from '../model/product.model';
 export class CartService {
   constructor(private http: HttpClient) { }
 
-
-  addToCart(id: any, quantity: any, frameId: any) {
-
-    console.log(quantity)
+  noOfOrder = new BehaviorSubject<number>(0);
 
 
-
-
-    const token: string | null = localStorage.getItem('user');
-    let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}`, 'Content-Type': 'application/json' }) };
-
-
-    return this.http.post("http://localhost:3000/api/carts/add-cart/" + id, { quantity, frameId }, _options)
-
-  }
 
   addFrame(frameDeatails: any, gifts: any, id: any) {
     const formData = new FormData();
@@ -40,7 +29,7 @@ export class CartService {
     let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}` }) };
 
 
-    return this.http.post("http://localhost:3000/api/frame/add-frame", formData, _options)
+    return this.http.post("https://replicagiftsbackend.onrender.com/api/frame/add-frame", formData, _options)
 
   }
 
@@ -49,14 +38,22 @@ export class CartService {
     let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}` }) };
 
 
-    return this.http.get<any>("http://localhost:3000/api/frame/get/" + id, _options)
+    return this.http.get<any>("https://replicagiftsbackend.onrender.com/api/frame/get/" + id, _options)
   }
   frameData(id: any) {
     const token: string | null = localStorage.getItem('user');
     let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}` }) };
 
 
-    return this.http.get<any>("http://localhost:3000/api/frame/get-frame/" + id, _options)
+    return this.http.get<any>("https://replicagiftsbackend.onrender.com/api/frame/get-frame/" + id, _options)
+  }
+
+  setFrameViewed(id: any) {
+    const token: string | null = sessionStorage.getItem('admin');
+    let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}` }) };
+
+
+    return this.http.post<any>("http://localhost:3000/api/frame/viewed/" + id, {}, _options)
   }
 
   getAllFrames() {
@@ -67,28 +64,25 @@ export class CartService {
     return this.http.get<any>("http://localhost:3000/api/frame/orders", _options)
   }
 
-  getCart() {
-    const token: string | null = localStorage.getItem('user');
-    let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}` }) };
-
-
-    return this.http.get("http://localhost:3000/api/carts/get-cart/", _options)
+  checkNoOfOrder() {
+    this.getAllFrames().subscribe((frames: any) => {
+      this.noOfOrder.next(frames.recentlyAdded.length)
+    })
   }
 
-  remove(id: any) {
-    const token: string | null = localStorage.getItem('user');
-    let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}` }) };
-
-
-    return this.http.delete("http://localhost:3000/api/carts/remove-item/" + id, _options)
-  }
-
-  editQuantity(id: any, quantity: any) {
-    const token: string | null = localStorage.getItem('user');
+  updateStauts(id: any, status: any) {
+    const token: string | null = sessionStorage.getItem('admin');
     let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}`, 'Content-Type': 'application/json' }) };
 
-    return this.http.post("http://localhost:3000/api/carts/edit-quantity/" + id, { quantity }, _options)
 
+    return this.http.put<any>(`http://localhost:3000/api/frame/${id}/delivery-status`, { status }, _options)
+  }
+  updatetrackingId(id: any, trackingId: any) {
+    const token: string | null = sessionStorage.getItem('admin');
+    let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}`, 'Content-Type': 'application/json' }) };
+
+
+    return this.http.put<any>(`http://localhost:3000/api/frame/${id}/tracking-id`, { trackingId }, _options)
   }
 
 }

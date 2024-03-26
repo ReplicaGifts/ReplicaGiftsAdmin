@@ -15,20 +15,20 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let order of reorders; let i = index">
+            <tr *ngFor="let order of orders; let i = index">
               <td>{{ i + 1 }}.</td>
               <td>{{ order.orderId }}</td>
               <td>{{ order.chreatedAt | date }}</td>
               <td>{{ order.user.username }}</td>
               <td>{{ order.totalAmount }}</td>
-              <td>View</td>
+              <td (click)="nav(order._id)">View</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
     <div class="content-detail">
-      <h4>Completed Order</h4>
+      <h4>Viewed Order</h4>
       <div class="table-responsive">
         <table class="table">
           <thead>
@@ -42,13 +42,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let order of orders; let i = index">
+            <tr *ngFor="let order of reorders; let i = index">
               <td>{{ i + 1 }}.</td>
               <td>{{ order.orderId }}</td>
               <td>{{ order.chreatedAt | date }}</td>
               <td>{{ order.user.username }}</td>
               <td>{{ order.totalAmount }}</td>
-              <td>View</td>
+              <td (click)="nav(order._id)">View</td>
             </tr>
           </tbody>
         </table>

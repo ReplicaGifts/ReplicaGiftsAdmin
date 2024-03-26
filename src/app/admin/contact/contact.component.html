@@ -1,5 +1,5 @@
 <div class="content">
-  <h4>Orders</h4>
+  <h4>Contact</h4>
   <div class="content-data">
     <div class="content-form" id="addProductForm">
       <table class="table">
@@ -8,8 +8,10 @@
           <th>Date</th>
           <th>Name</th>
           <th>Email</th>
+          <th>Phone</th>
           <th>Subject</th>
           <th>Message</th>
+          <th>Action</th>
         </thead>
         <tbody>
           <tr *ngFor="let con of contact; let i = index">
@@ -17,6 +19,39 @@
             <td>{{ con.chreatedAt | date }}</td>
             <td>{{ con.name }}</td>
             <td>{{ con.email }}</td>
+            <td>{{ con.phone }}</td>
+            <td>{{ con.subject }}</td>
+            <td>{{ con.message }}</td>
+            <td>
+              <button (click)="view(con._id)" class="btn1s">View</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br />
+  <br />
+  <h4>Viewed</h4>
+  <div class="content-data">
+    <div class="content-form" id="addProductForm">
+      <table class="table">
+        <thead>
+          <th>Si.NO</th>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Subject</th>
+          <th>Message</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let con of contactViewed; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ con.chreatedAt | date }}</td>
+            <td>{{ con.name }}</td>
+            <td>{{ con.email }}</td>
+            <td>{{ con.phone }}</td>
             <td>{{ con.subject }}</td>
             <td>{{ con.message }}</td>
           </tr>

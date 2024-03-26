@@ -14,10 +14,22 @@ export class ContactComponent {
   constructor(private conatctServicec: AdminAuthService) { }
 
   contact: any[] = []
+  contactViewed: any[] = []
 
   ngOnInit() {
-    this.conatctServicec.conatct().subscribe((contact: any) => this.contact = contact)
+    this.conatctServicec.conatct().subscribe((contact: any) => {
+      this.contact = contact.recentlyAdded;
+      this.contactViewed = contact.viewed
+    })
   }
 
+  view(id: any) {
+    this.conatctServicec.viewedConatct(id).subscribe(contact => {
+    });
+    this.conatctServicec.conatct().subscribe((contact: any) => {
+      this.contact = contact.recentlyAdded;
+      this.contactViewed = contact.viewed
+    })
+  }
 
 }

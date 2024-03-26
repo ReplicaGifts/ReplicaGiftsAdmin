@@ -18,11 +18,17 @@ export class DashboardComponent {
   reorders: any[] = [];
 
   ngOnInit() {
-    this.order.getAllFrames().subscribe(frames => { this.reorders = frames.recentlyAdded; this.order = frames.remainingOrders });
+    this.order.getAllFrames().subscribe(frames => { this.orders = frames.recentlyAdded; this.reorders = frames.remainingOrders; console.log(frames) });
   }
 
   nav(id: any) {
+    this.order.setFrameViewed(id).subscribe(frames => {
+      this.order.checkNoOfOrder();
+    });
     this.router.navigateByUrl(`/admin/order-view/${id}`);
   }
+
+
+
 
 }
