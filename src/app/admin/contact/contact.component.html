@@ -23,7 +23,9 @@
             <td>{{ con.subject }}</td>
             <td>{{ con.message }}</td>
             <td>
-              <button (click)="view(con._id)" class="btn1s">View</button>
+              <button (click)="view(con._id)" class="btn1s active-link">
+                Read
+              </button>
             </td>
           </tr>
         </tbody>
@@ -44,6 +46,7 @@
           <th>Phone</th>
           <th>Subject</th>
           <th>Message</th>
+          <th>Action</th>
         </thead>
         <tbody>
           <tr *ngFor="let con of contactViewed; let i = index">
@@ -54,6 +57,11 @@
             <td>{{ con.phone }}</td>
             <td>{{ con.subject }}</td>
             <td>{{ con.message }}</td>
+            <td>
+              <button (click)="view(con._id)" class="btn1s active-link">
+                Read
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

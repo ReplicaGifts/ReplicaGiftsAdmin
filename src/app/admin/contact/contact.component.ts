@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AdminAuthService } from '../../service/admin-auth.service';
 import { CommonModule, DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -11,7 +12,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 })
 export class ContactComponent {
 
-  constructor(private conatctServicec: AdminAuthService) { }
+  constructor(private conatctServicec: AdminAuthService, private router: Router) { }
 
   contact: any[] = []
   contactViewed: any[] = []
@@ -24,12 +25,7 @@ export class ContactComponent {
   }
 
   view(id: any) {
-    this.conatctServicec.viewedConatct(id).subscribe(contact => {
-    });
-    this.conatctServicec.conatct().subscribe((contact: any) => {
-      this.contact = contact.recentlyAdded;
-      this.contactViewed = contact.viewed
-    })
+    this.router.navigateByUrl(`/admin/contact-view/${id}`);
   }
 
 }

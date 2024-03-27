@@ -12,6 +12,7 @@ export class CartService {
   noOfOrder = new BehaviorSubject<number>(0);
 
 
+  baseUrl = "https://replicagiftsbackend.onrender.com"
 
   addFrame(frameDeatails: any, gifts: any, id: any) {
     const formData = new FormData();
@@ -53,7 +54,7 @@ export class CartService {
     let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}` }) };
 
 
-    return this.http.post<any>("http://localhost:3000/api/frame/viewed/" + id, {}, _options)
+    return this.http.post<any>(this.baseUrl + "/api/frame/viewed/" + id, {}, _options)
   }
 
   getAllFrames() {
@@ -61,7 +62,7 @@ export class CartService {
     let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}` }) };
 
 
-    return this.http.get<any>("http://localhost:3000/api/frame/orders", _options)
+    return this.http.get<any>(this.baseUrl + "/api/frame/orders", _options)
   }
 
   checkNoOfOrder() {
@@ -75,14 +76,14 @@ export class CartService {
     let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}`, 'Content-Type': 'application/json' }) };
 
 
-    return this.http.put<any>(`http://localhost:3000/api/frame/${id}/delivery-status`, { status }, _options)
+    return this.http.put<any>(this.baseUrl + `/api/frame/${id}/delivery-status`, { status }, _options)
   }
   updatetrackingId(id: any, trackingId: any) {
     const token: string | null = sessionStorage.getItem('admin');
     let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}`, 'Content-Type': 'application/json' }) };
 
 
-    return this.http.put<any>(`http://localhost:3000/api/frame/${id}/tracking-id`, { trackingId }, _options)
+    return this.http.put<any>(this.baseUrl + `/api/frame/${id}/tracking-id`, { trackingId }, _options)
   }
 
 }

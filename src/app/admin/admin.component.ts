@@ -17,17 +17,28 @@ export class AdminComponent {
   constructor(private router: Router, private cart: CartService, private admin: AdminAuthService) { }
 
   noOfOrder = 0;
+  noOfConatct = 0;
   user: any;
 
   ngOnInit() {
+    this.admin.checkNoOf();
     this.cart.checkNoOfOrder();
     this.cart.noOfOrder.subscribe(result => this.noOfOrder = result);
 
-    this.admin.getUser().subscribe(user => { this.user = user })
+    this.admin.getUser().subscribe(user => {
+      this.user = user
+
+    })
+    this.admin.noOfCantact.subscribe(result => { console.log(result); this.noOfConatct = result });
 
   }
   navPrintType() {
     this.router.navigateByUrl('/admin/category?printType=true')
+  }
+
+  navCon() {
+    this.display = "contact"
+    this.router.navigate(['/admin', 'contact'])
   }
 
   display = "home"

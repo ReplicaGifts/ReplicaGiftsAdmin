@@ -12,6 +12,7 @@ import { OrderViewComponent } from './admin/order-view/order-view.component';
 import { GiftsComponent } from './admin/gifts/gifts.component';
 import { FramesComponent } from './admin/frames/frames.component';
 import { ContactComponent } from './admin/contact/contact.component';
+import { ContactViewComponent } from './contact-view/contact-view.component';
 
 export const routes: Routes = [
     {
@@ -26,6 +27,7 @@ export const routes: Routes = [
             { path: 'frames', component: FramesComponent, canActivate: [AuthGuard] },
             { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
             { path: 'order-view/:id', component: OrderViewComponent, canActivate: [AuthGuard] },
+            { path: 'contact-view/:id', component: ContactViewComponent, canActivate: [AuthGuard] },
         ]
 
     },

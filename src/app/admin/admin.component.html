@@ -122,6 +122,10 @@
                 </div> -->
         </nav>
         <div class="account-info">
+          <div class="position-relative pointer" (click)="navCon()">
+            <span class="badge" *ngIf="noOfConatct > 0">{{ noOfConatct }}</span>
+            <i class="bi bi-person-fill fs-4"></i>
+          </div>
           <div class="position-relative" (click)="nav()">
             <span class="badge" *ngIf="noOfOrder > 0">{{ noOfOrder }}</span>
             <img
