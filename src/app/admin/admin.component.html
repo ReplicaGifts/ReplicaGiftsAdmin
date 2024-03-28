@@ -1,4 +1,5 @@
 <main class="main">
+
   <!--=============== BREADCRUMB ===============-->
   <!-- <section class="breadcrumb">
         <ul class="breadcrumb__list flex container">
@@ -74,7 +75,7 @@
           >
             <img
               class="footer__social-icon"
-              src="../../../assets/admin-assets/noun-category-861639.svg"
+              src="../../../assets/admin-assets/print-svgrepo-com.svg"
               alt="Icon"
             />Print Type
           </a>
@@ -97,7 +98,11 @@
             [routerLink]="['/admin', 'contact']"
             (click)="setDisabledState('contact')"
           >
-            <i class="bi bi-person"></i> Contact</a
+          <img
+          class="footer__social-icon"
+          src="../../../assets/admin-assets/icons8-contacts.svg"
+          alt="Icon"
+        />Contact</a
           >
         </li>
       </ul>
@@ -130,9 +135,10 @@
             <span class="badge" *ngIf="noOfOrder > 0">{{ noOfOrder }}</span>
             <img
               class="icon-sm"
-              src="../../../assets/admin-assets/bell-ring-outline.svg"
+              src="../../../assets/admin-assets/211694_bell_icon.png"
               alt="Notify"
             />
+            
           </div>
           <div class="img-cropper-sm">
             <img

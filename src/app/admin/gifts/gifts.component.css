@@ -1,0 +1,9 @@
+strong{
+    padding-top: 8px !important;
+  }
+  
+  .btn{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  }

@@ -37,7 +37,7 @@
       />
     </div>
   </div>
-
+<br>
   <strong>Upload Thumbnail</strong>
 
   <div class="my-4">
@@ -50,18 +50,18 @@
 
   <button
     *ngIf="!showUpdate"
-    class="btn btn-primary w-100 my-4"
+    class="btn my-4"
     (click)="submit()"
   >
     Submit
   </button>
   <ng-container *ngIf="showUpdate">
-    <button class="btn btn-primary w-100 my-4" (click)="update()">
+    <button class="btn my-4" (click)="update()">
       Update
     </button>
-    <button class="btn btn-primary w-100 my-1" (click)="close()">Close</button>
+    <button class="btn my-1" (click)="close()">Close</button>
   </ng-container>
-  <table class="table">
+  <table class="table order__table">
     <thead>
       <th>_id</th>
       <th>Name</th>

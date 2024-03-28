@@ -302,6 +302,8 @@
             </option>
           </select>
         </div>
+
+        <br>
         <strong>Add Product images</strong>
 
         <div class="form-group">
@@ -355,7 +357,7 @@
           <br />
 
           <button
-            class="btns1"
+            class="btn"
             (click)="data.additionalInfo.push({ title: '', description: '' })"
           >
             Add Info
@@ -395,7 +397,7 @@
           <br />
 
           <button
-            class="btns1"
+            class="btn"
             (click)="data.availablePrintSize.push({ width: 0, height: 1 })"
           >
             Add Size
@@ -426,13 +428,13 @@
               </select>
             </div>
           </ng-container>
-          <button class="btns1" (click)="data.availablePrintType.push('')">
+          <button class="btn" (click)="data.availablePrintType.push('')">
             Add Print Type
           </button>
         </div>
         <br />
         <br />
-        <button *ngIf="!showUpdate" class="btns" (click)="submit()">
+        <button *ngIf="!showUpdate" class="btn" style="float:right;" (click)="submit()">
           Submit
         </button>
         <ng-container *ngIf="showUpdate">
@@ -447,7 +449,7 @@
     <div style="padding-top: 60px">
       <h4>Products</h4>
       <div class="table-responsive">
-        <table class="table text-center">
+        <table class="table order__table text-center">
           <thead class="">
             <th>S.NO</th>
             <th>product Id</th>

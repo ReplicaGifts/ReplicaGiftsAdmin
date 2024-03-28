@@ -2,14 +2,13 @@
   position: absolute;
   top: -5px;
   right: -10px;
-  background-color: red;
-
+  background-color: rgb(255, 128, 0);
   color: white;
   font-weight: bold;
-
   border-radius: 100%;
 }
 
 .pointer {
   cursor: pointer;
 }
+

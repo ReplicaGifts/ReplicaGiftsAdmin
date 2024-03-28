@@ -18,7 +18,7 @@ body {
   --title-color: hsl(0, 0%, 13%);
   --text-color: hsl(153, 9%, 19%);
   --text-color-light: hsl(60, 1%, 56%);
-  --body-color: hsl(0, 0%, 93%);
+  --body-color: hsl(0, 0%, 100%);
   --container-color: hsl(0, 0%, 93%);
   --border-color: hsl(129, 36%, 85%);
   --border-color-alt: hsl(0, 0%, 80%);
@@ -1991,6 +1991,7 @@ background-color: #cfcfcf;
 .table tbody tr td {
   padding: 0.7rem 0.5rem;
   text-align: center;
+  overflow: hidden;
 }
 
 .table__title,
@@ -3042,6 +3043,7 @@ color: rgb(255, 89, 0) ;
 
 main .main-content {
   display: flex;
+ 
   /* padding: 50px; */
   /* padding-bottom: 60px; */
   
@@ -3063,7 +3065,7 @@ main .main-content h3 {
 
 main .sidebar {
   width: 25%;
-  height: 2100px;
+  height: 3100px;
   /* padding: 5px; */
   border: 1px solid rgba(236, 240, 241, 0.3);
   background-color: var(--text-color);
@@ -3140,6 +3142,10 @@ main .content .content-data .content-detail {
   padding-left: 10px;
 }
 
+.form-group{
+ padding-top: 20px !important;
+}
+
 main h4 {
   display: block;
   color: white;
@@ -3153,6 +3159,7 @@ main h4 {
 main form .form-group {
   margin: 25px 0;
   width: 100%;
+  padding-top: 20px;
 }
 
 main form label {
