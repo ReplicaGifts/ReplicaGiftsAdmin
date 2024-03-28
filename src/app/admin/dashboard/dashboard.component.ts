@@ -23,7 +23,7 @@ export class DashboardComponent {
 
   nav(id: any) {
     this.order.setFrameViewed(id).subscribe(frames => {
-      this.order.checkNoOfOrder();
+      this.order.checkNoOf();
     });
     this.router.navigateByUrl(`/admin/order-view/${id}`);
   }

@@ -21,7 +21,7 @@ export class ContactComponent {
     this.conatctServicec.conatct().subscribe((contact: any) => {
       this.contact = contact.recentlyAdded;
       this.contactViewed = contact.viewed
-    })
+    });
   }
 
   view(id: any) {
