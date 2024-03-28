@@ -5,12 +5,10 @@ import { ProductComponent } from './admin/product/product.component';
 import { CategoryComponent } from './admin/category/category.component';
 import { AuthGuard } from './auth.guard';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { UserAuthGuard } from './user-auth.guard';
 import { ProductViewComponent } from './admin/product-view/product-view.component';
 import { OrdersComponent } from './admin/orders/orders.component';
 import { OrderViewComponent } from './admin/order-view/order-view.component';
 import { GiftsComponent } from './admin/gifts/gifts.component';
-import { FramesComponent } from './admin/frames/frames.component';
 import { ContactComponent } from './admin/contact/contact.component';
 import { ContactViewComponent } from './contact-view/contact-view.component';
 
@@ -24,7 +22,6 @@ export const routes: Routes = [
             { path: 'category', component: CategoryComponent, canActivate: [AuthGuard] },
             { path: 'gifts', component: GiftsComponent, canActivate: [AuthGuard] },
             { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
-            { path: 'frames', component: FramesComponent, canActivate: [AuthGuard] },
             { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
             { path: 'order-view/:id', component: OrderViewComponent, canActivate: [AuthGuard] },
             { path: 'contact-view/:id', component: ContactViewComponent, canActivate: [AuthGuard] },
