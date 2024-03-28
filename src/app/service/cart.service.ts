@@ -12,7 +12,8 @@ export class CartService {
   noOfOrder = new BehaviorSubject<number>(0);
 
 
-  baseUrl = "https://replicagiftsbackend.onrender.com"
+  // baseUrl = "https://replicagiftsbackend.onrender.com"
+  baseUrl = "http://localhost:3000"
 
   addFrame(frameDeatails: any, gifts: any, id: any) {
     const formData = new FormData();
@@ -65,12 +66,21 @@ export class CartService {
     return this.http.get<any>(this.baseUrl + "/api/frame/orders", _options)
   }
 
-  checkNoOfOrder() {
-    this.getAllFrames().subscribe((frames: any) => {
-      this.noOfOrder.next(frames.recentlyAdded.length)
-    })
+  isNotified(id: string) {
+    const token: string | null = sessionStorage.getItem('admin');
+    let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}` }) };
+
+
+    return this.http.post(this.baseUrl + "/api/frame/notified/" + id, {}, _options);
+
   }
 
+  checkNoOf() {
+
+    this.http.get<any>(this.baseUrl + "/api/frame/notify").subscribe(data => {
+      this.noOfOrder.next(data.count);
+    })
+  }
   updateStauts(id: any, status: any) {
     const token: string | null = sessionStorage.getItem('admin');
     let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}`, 'Content-Type': 'application/json' }) };

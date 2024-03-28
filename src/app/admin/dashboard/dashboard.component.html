@@ -19,7 +19,8 @@
               <td>{{ i + 1 }}.</td>
               <td>{{ order.orderId }}</td>
               <td>{{ order.chreatedAt | date }}</td>
-              <td>{{ order.user.username }}</td>
+              <td>{{ order.deliveryAddress.name }}</td>
+
               <td>{{ order.totalAmount }}</td>
               <td (click)="nav(order._id)">View</td>
             </tr>
@@ -46,7 +47,8 @@
               <td>{{ i + 1 }}.</td>
               <td>{{ order.orderId }}</td>
               <td>{{ order.chreatedAt | date }}</td>
-              <td>{{ order.user.username }}</td>
+              <td>{{ order.deliveryAddress.name }}</td>
+              <!-- <td *ngIf="!order.user">{{}}</td> -->
               <td>{{ order.totalAmount }}</td>
               <td (click)="nav(order._id)">View</td>
             </tr>

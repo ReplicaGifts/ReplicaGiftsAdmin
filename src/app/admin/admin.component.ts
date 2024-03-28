@@ -22,7 +22,7 @@ export class AdminComponent {
 
   ngOnInit() {
     this.admin.checkNoOf();
-    this.cart.checkNoOfOrder();
+    this.cart.checkNoOf();
     this.cart.noOfOrder.subscribe(result => this.noOfOrder = result);
 
     this.admin.getUser().subscribe(user => {
@@ -46,7 +46,7 @@ export class AdminComponent {
   setDisabledState(name: string) {
     if (name.includes('order')) {
 
-      this.cart.checkNoOfOrder();
+      this.cart.checkNoOf();
     }
     this.display = name;
   }

@@ -31,7 +31,6 @@ export class ProductComponent {
       title: '',
       description: ''
     }],
-    quantity: 1,
 
     availablePrintSize: [{
       width: 0,
@@ -135,7 +134,6 @@ export class ProductComponent {
         title: '',
         description: ''
       }],
-      quantity: 1,
 
       availablePrintSize: [{
         width: 0,
@@ -152,7 +150,7 @@ export class ProductComponent {
     console.log(this.data)
     this.product.addProduct(this.data).subscribe(data => {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Product has been saved",
         showConfirmButton: false,

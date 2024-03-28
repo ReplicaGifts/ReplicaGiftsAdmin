@@ -12,7 +12,8 @@ export class AdminAuthService {
 
   noOfCantact = new BehaviorSubject<number>(0);
 
-  baseUrl = "https://replicagiftsbackend.onrender.com"
+  // baseUrl = "https://replicagiftsbackend.onrender.com"
+  baseUrl = "http://localhost:3000"
 
   _options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
@@ -54,11 +55,13 @@ export class AdminAuthService {
     return this.http.post(this.baseUrl + "/api/admin/viewed/" + id, {}, _options)
   }
 
+
   checkNoOf() {
-    this.conatct().subscribe((data: any) => {
-      console.log(data);
-      this.noOfCantact.next(data.recentlyAdded.length);
+
+    this.http.get<any>(this.baseUrl + "/api/admin/notify").subscribe(data => {
+      this.noOfCantact.next(data.count);
     })
+
   }
 
 }
