@@ -17,7 +17,24 @@
           />
         </div>
       </div>
-<br>
+      <br />
+      <div class="form-group">
+        <label>Frames ?</label>
+        <select class="form-control" id="userImage" [(ngModel)]="data.frame">
+          <option
+            *ngFor="
+              let print of [
+                { is: true, value: 'Yes' },
+                { is: false, value: 'No' }
+              ]
+            "
+            [value]="print.is"
+          >
+            {{ print.value }}
+          </option>
+        </select>
+      </div>
+      <br />
       <strong>Upload Thumbnail</strong>
 
       <div class="my-4">
@@ -29,11 +46,7 @@
         />
       </div>
 
-      <button
-        *ngIf="!showUpdate"
-        class="btn my-4"
-        (click)="submit()"
-      >
+      <button *ngIf="!showUpdate" class="btn my-4" (click)="submit()">
         Submit
       </button>
       <ng-container *ngIf="showUpdate">

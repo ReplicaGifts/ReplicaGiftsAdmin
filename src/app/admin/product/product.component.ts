@@ -38,9 +38,12 @@ export class ProductComponent {
     }],
 
     availablePrintType: [""],
-    category: ''
+    category: '',
+    frame: ''
+
   }
 
+  selected_category: boolean = false;
 
 
   categories: any[] = [];
@@ -61,6 +64,15 @@ export class ProductComponent {
 
   }
 
+  getSelectCategory() {
+    this.categories.map((c: any) => {
+      if (c._id.toString() === this.data.category) {
+        this.selected_category = c.frame
+      }
+    })
+  }
+
+
   get() {
     this.product.get().subscribe((data: Product[]) => {
       this.products = data;
@@ -76,6 +88,13 @@ export class ProductComponent {
   addThub(e: any) {
     console.log(e);
     this.data.image = e.target.files[0];
+  }
+
+
+
+  addFrame(e: any) {
+    console.log(e);
+    this.data.frame = e.target.files[0];
   }
 
 

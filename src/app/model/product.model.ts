@@ -22,5 +22,6 @@ export class Product {
 
     availablePrintType!: any[];
     amount?: number;
-    reviews?: [{ rating: number, user: any, comment: string }]
+    frame?: string | File;
+    // reviews?:/ [{ rating: number, user: any, comment: string }]
 }

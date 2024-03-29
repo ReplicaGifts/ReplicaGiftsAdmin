@@ -50,7 +50,8 @@ export class CategoryComponent {
 
   data = {
     categoryName: '',
-    thumbnail: ''
+    thumbnail: '',
+    frame: false,
   }
 
   addThub(e: any) {
@@ -114,7 +115,7 @@ export class CategoryComponent {
 
 
   edit(data: any) {
-
+    console.log(data);
     this.idtoUPdate = data._id;
     this.showUpdate = true;
     this.data = data;
@@ -162,7 +163,9 @@ export class CategoryComponent {
     this.showUpdate = false
     this.data = {
       categoryName: '',
-      thumbnail: ''
+      thumbnail: '',
+      frame: false,
+
     }
   }
 
