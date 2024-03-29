@@ -6,9 +6,12 @@
   color: white;
   font-weight: bold;
   border-radius: 100%;
+
 }
 
 .pointer {
   cursor: pointer;
 }
 
+main .content {
+  width: 100%;}

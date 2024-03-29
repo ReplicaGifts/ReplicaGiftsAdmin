@@ -3,7 +3,7 @@
     <div class="content-detail">
       <h4>Recent Order</h4>
       <div class="table-responsive">
-        <table class="table order__table">
+        <table class="order__table">
           <thead>
             <tr>
               <th>Sl.No</th>
@@ -22,7 +22,7 @@
               <td>{{ order.deliveryAddress.name }}</td>
 
               <td>{{ order.totalAmount }}</td>
-              <td (click)="nav(order._id)">View</td>
+              <td class="view" (click)="nav(order._id)">View</td>
             </tr>
           </tbody>
         </table>
@@ -50,7 +50,7 @@
               <td>{{ order.deliveryAddress.name }}</td>
               <!-- <td *ngIf="!order.user">{{}}</td> -->
               <td>{{ order.totalAmount }}</td>
-              <td (click)="nav(order._id)">View</td>
+              <td class="view" (click)="nav(order._id)">View</td>
             </tr>
           </tbody>
         </table>
