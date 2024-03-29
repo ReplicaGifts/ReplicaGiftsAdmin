@@ -1,0 +1,6 @@
+.view{
+    color: rgb(255, 136, 0);
+    cursor: pointer;
+}
+.table>:not(:last-child)>:last-child>* {
+    border-bottom-color: rgb(120, 120, 120);}
