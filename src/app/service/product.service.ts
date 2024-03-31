@@ -14,7 +14,7 @@ export class ProductService {
 
 
   // baseUrl = "https://replicagiftsbackend.onrender.com"
-  baseUrl = "http://localhost:3000"
+  baseUrl = "https://replicagiftsbackend.onrender.com"
   addProduct(data: any) {
 
     const formData = new FormData();
