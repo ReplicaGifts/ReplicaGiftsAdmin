@@ -10,6 +10,7 @@
           <th>User</th>
           <th>Amount</th>
           <th>View</th>
+          <th>Action</th>
         </thead>
         <tbody>
           <tr *ngFor="let order of orders; let i = index">
@@ -21,6 +22,12 @@
 
             <td>
               <button class="view" (click)="nav(order._id)">View</button>
+            </td>
+            <td>
+              <i
+                (click)="deleteProduct(order._id)"
+                class="fa fa-trash text-danger"
+              ></i>
             </td>
           </tr>
         </tbody>

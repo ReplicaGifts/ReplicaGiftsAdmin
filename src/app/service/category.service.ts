@@ -9,8 +9,8 @@ export class CategoryService {
   constructor(private http: HttpClient) { }
 
   _options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-  // baseUrl = "https://replicagiftsbackend.onrender.com"
-  baseUrl = "http://localhost:3000"
+  baseUrl = "https://replicagiftsbackend.onrender.com"
+  // baseUrl = "http://localhost:3000"
 
 
   addProduct(data: any) {

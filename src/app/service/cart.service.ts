@@ -12,8 +12,8 @@ export class CartService {
   noOfOrder = new BehaviorSubject<number>(0);
 
 
-  // baseUrl = "https://replicagiftsbackend.onrender.com"
-  baseUrl = "http://localhost:3000"
+  baseUrl = "https://replicagiftsbackend.onrender.com"
+  // baseUrl = "http://localhost:3000"
 
   addFrame(frameDeatails: any, gifts: any, id: any) {
     const formData = new FormData();
@@ -94,6 +94,10 @@ export class CartService {
 
 
     return this.http.put<any>(this.baseUrl + `/api/frame/${id}/tracking-id`, { trackingId }, _options)
+  }
+
+  deleteF(id: string) {
+    return this.http.delete(this.baseUrl + `/api/frame/delete/${id}`);
   }
 
 }

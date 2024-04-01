@@ -53,6 +53,14 @@
   >
     Download Image
   </button>
+
+  <button
+    *ngIf="data.userImageModel"
+    (click)="downloadImage(data.userImageModel, 'userImageModel.png')"
+    class="btns my-2"
+  >
+    Download Image Model
+  </button>
   <br />
   <br />
   <strong>Delivery Address:</strong>

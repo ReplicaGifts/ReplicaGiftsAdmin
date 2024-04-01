@@ -203,15 +203,24 @@ export class ProductComponent {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        this.product.delete(id).subscribe(data => {
+        this.product.delete(id).subscribe((data: any) => {
+          console.log(data);
 
-          this.get()
-          Swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
-            icon: "success"
-          });
+          if (data.success) {
 
+            this.get()
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            });
+          } else {
+            Swal.fire({
+              title: "Warning!",
+              text: data.message,
+              icon: "warning"
+            });
+          }
 
 
         });

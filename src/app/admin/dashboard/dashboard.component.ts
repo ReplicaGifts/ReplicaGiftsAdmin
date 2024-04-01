@@ -16,9 +16,10 @@ export class DashboardComponent {
 
   orders: any[] = [];
   reorders: any[] = [];
+  delivered: any[] = [];
 
   ngOnInit() {
-    this.order.getAllFrames().subscribe(frames => { this.orders = frames.recentlyAdded; this.reorders = frames.remainingOrders; console.log(frames) });
+    this.order.getAllFrames().subscribe(frames => { this.orders = frames.recentlyAdded; this.reorders = frames.remainingOrders; console.log(frames); this.delivered = frames.delivered });
   }
 
   nav(id: any) {

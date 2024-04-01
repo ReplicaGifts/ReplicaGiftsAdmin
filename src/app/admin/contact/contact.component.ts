@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AdminAuthService } from '../../service/admin-auth.service';
 import { CommonModule, DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact',
@@ -18,6 +19,10 @@ export class ContactComponent {
   contactViewed: any[] = []
 
   ngOnInit() {
+    this.get()
+  }
+
+  get() {
     this.conatctServicec.conatct().subscribe((contact: any) => {
       this.contact = contact.recentlyAdded;
       this.contactViewed = contact.viewed
@@ -26,6 +31,35 @@ export class ContactComponent {
 
   view(id: any) {
     this.router.navigateByUrl(`/admin/contact-view/${id}`);
+  }
+
+  deleteProduct(id: any) {
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.conatctServicec.delete(id).subscribe((data: any) => {
+          console.log(data);
+
+
+          this.get()
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          });
+
+
+        });
+      }
+    });
   }
 
 }

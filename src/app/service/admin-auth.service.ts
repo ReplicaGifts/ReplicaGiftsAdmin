@@ -12,8 +12,8 @@ export class AdminAuthService {
 
   noOfCantact = new BehaviorSubject<number>(0);
 
-  // baseUrl = "https://replicagiftsbackend.onrender.com"
-  baseUrl = "http://localhost:3000"
+  baseUrl = "https://replicagiftsbackend.onrender.com"
+  // baseUrl = "http://localhost:3000"
 
   _options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
@@ -47,6 +47,11 @@ export class AdminAuthService {
   conatct() {
     return this.http.get(this.baseUrl + "/api/admin/contact")
   }
+
+  delete(id: string) {
+    return this.http.delete(this.baseUrl + "/api/admin/contact/" + id);
+  }
+
   viewedConatct(id: any) {
     const token: string | null = sessionStorage.getItem('admin');
     let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}` }) };
