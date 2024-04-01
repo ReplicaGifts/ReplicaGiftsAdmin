@@ -7,3 +7,31 @@ strong{
 align-items: center;
 justify-content: center;
 }
+
+.table-responsive{
+  height: 100vh; overflow-y: auto;
+}
+
+
+::-webkit-scrollbar {
+  width: 1px;
+  /* Adjust the width as needed */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* Change the background color of the track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c8c8c8;
+  /* Change the color of the scrollbar handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+  /* Change the color of the scrollbar handle on hover */
+}
