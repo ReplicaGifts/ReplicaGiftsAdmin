@@ -41,13 +41,15 @@ export class AdminComponent {
     this.router.navigate(['/admin', 'contact'])
   }
 
-  display = "home"
+  display = sessionStorage.getItem('display') ?? 'home'
 
   setDisabledState(name: string) {
     if (name.includes('order')) {
 
       this.cart.checkNoOf();
     }
+
+    sessionStorage.setItem('display', name);
     this.display = name;
   }
 

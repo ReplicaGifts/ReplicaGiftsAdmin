@@ -11,12 +11,14 @@ import { OrderViewComponent } from './admin/order-view/order-view.component';
 import { GiftsComponent } from './admin/gifts/gifts.component';
 import { ContactComponent } from './admin/contact/contact.component';
 import { ContactViewComponent } from './contact-view/contact-view.component';
+import { HomeComponent } from './admin/home/home.component';
 
 export const routes: Routes = [
     {
         path: 'admin', component: AdminComponent, children: [
 
-            { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+            { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+            { path: 'orders-status', component: DashboardComponent, canActivate: [AuthGuard] },
             { path: 'product-manipulate', component: ProductComponent, canActivate: [AuthGuard] },
             { path: 'product-view', component: ProductViewComponent, canActivate: [AuthGuard] },
             { path: 'category', component: CategoryComponent, canActivate: [AuthGuard] },

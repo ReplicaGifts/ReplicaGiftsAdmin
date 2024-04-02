@@ -1,5 +1,4 @@
 <main class="main">
-
   <!--=============== BREADCRUMB ===============-->
   <!-- <section class="breadcrumb">
         <ul class="breadcrumb__list flex container">
@@ -29,6 +28,19 @@
               src="../../../assets/admin-assets/home.svg"
               alt="Icon"
             />Home</a
+          >
+        </li>
+        <li>
+          <a
+            class="{{ display === 'status' ? 'active' : '' }}"
+            [routerLink]="['/admin', 'orders-status']"
+            (click)="setDisabledState('status')"
+          >
+            <img
+              class="footer__social-icon"
+              src="../../../assets/admin-assets/account-circle-outline.svg"
+              alt="Icon"
+            />Order Status</a
           >
         </li>
         <li>
@@ -98,11 +110,11 @@
             [routerLink]="['/admin', 'contact']"
             (click)="setDisabledState('contact')"
           >
-          <img
-          class="footer__social-icon"
-          src="../../../assets/admin-assets/icons8-contacts.svg"
-          alt="Icon"
-        />Contact</a
+            <img
+              class="footer__social-icon"
+              src="../../../assets/admin-assets/icons8-contacts.svg"
+              alt="Icon"
+            />Contact</a
           >
         </li>
       </ul>
@@ -138,7 +150,6 @@
               src="../../../assets/admin-assets/211694_bell_icon.png"
               alt="Notify"
             />
-            
           </div>
           <div class="img-cropper-sm">
             <img
