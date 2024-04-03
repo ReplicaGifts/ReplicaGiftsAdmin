@@ -36,7 +36,6 @@
       </div>
       <br />
       <strong>Upload Thumbnail</strong>
-
       <div class="my-4">
         <input
           type="file"
@@ -45,7 +44,6 @@
           (change)="addThub($event)"
         />
       </div>
-
       <button *ngIf="!showUpdate" class="btn my-4" (click)="submit()">
         Submit
       </button>
@@ -61,7 +59,7 @@
         <thead>
           <th>_id</th>
           <th>Name</th>
-          <th>Action</th>
+          <th style="width: 10rem">Action</th>
         </thead>
         <tbody>
           <tr *ngFor="let cate of categories">

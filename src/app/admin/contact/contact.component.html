@@ -1,14 +1,14 @@
 <div class="content">
   <h4>Enquiry</h4>
-  <div class="content-data">
+  <div class="content-data" >
     <div class="content-form" id="addProductForm">
       <table class="table order__table">
         <thead>
-          <th>Si.NO</th>
-          <th>Date</th>
+          <th style="width: 4rem">Sl.NO</th>
+          <th style="width: 9rem">Date</th>
           <th>Name</th>
           <th>Email</th>
-          <th>Phone</th>
+          <!-- <th>Phone</th> -->
           <th>Subject</th>
           <th>Message</th>
           <th>Remove</th>
@@ -19,7 +19,7 @@
             <td>{{ con.chreatedAt | date }}</td>
             <td>{{ con.name }}</td>
             <td>{{ con.email }}</td>
-            <td>{{ con.phone }}</td>
+            <!-- <td>{{ con.phone }}</td> -->
             <td>{{ con.subject }}</td>
             <td>
               <button (click)="view(con._id)" class="btn1s active-link">
@@ -44,14 +44,14 @@
     <div class="content-form" id="addProductForm">
       <table class="table order__table">
         <thead>
-          <th>Si.NO</th>
-          <th>Date</th>
+          <th style="width: 4rem">Sl.NO</th>
+          <th style="width: 9rem">Date</th>
           <th>Name</th>
           <th>Email</th>
-          <th>Phone</th>
+          <!-- <th>Phone</th> -->
           <th>Subject</th>
-          <th>Message</th>
-          <th>Remove</th>
+          <th style="width: 6rem">Message</th>
+          <th style="width: 6rem">Remove</th>
         </thead>
         <tbody>
           <tr *ngFor="let con of contactViewed; let i = index">
@@ -59,7 +59,7 @@
             <td>{{ con.chreatedAt | date }}</td>
             <td>{{ con.name }}</td>
             <td>{{ con.email }}</td>
-            <td>{{ con.phone }}</td>
+            <!-- <td>{{ con.phone }}</td> -->
             <td>{{ con.subject }}</td>
             <td>
               <button (click)="view(con._id)" class="btn1s active-link">

@@ -2137,6 +2137,11 @@ background-color: #b0b0b0;
   font-size: var(--small-font-size);
 }
 
+/* .order__table{
+  
+} */
+
+
 .order__table thead tr th,
 .order__table tbody tr td {
   border: 1px solid var(--border-color-alt);
@@ -3216,6 +3221,7 @@ main table {
   width: 100%;
   border: 1px solid #eee;
   border-collapse: collapse;
+
 }
 
 main table th {
