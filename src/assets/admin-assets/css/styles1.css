@@ -387,6 +387,7 @@ header {
   align-items: center;
 }
 
+
 .nav {
   /* height: calc(var(--header-height) + 2.5rem); */
   padding-left: 180px;
