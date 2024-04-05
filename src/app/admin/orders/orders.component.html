@@ -8,7 +8,7 @@
           <th style="width: 12rem">Date</th>
           <th style="width: 23rem">Order Id</th>
           <th style="width: 20rem">User</th>
-          <th>Amount</th>
+          <!-- <th>Amount</th> -->
           <th style="width: 8rem">View</th>
           <th style="width: 8rem">Action</th>
         </thead>
@@ -19,7 +19,6 @@
             <td>{{ order.orderId }}</td>
             <td>{{ order.deliveryAddress.name }}</td>
             <td>{{ order.totalAmount }}</td>
-
             <td>
               <button class="view" (click)="nav(order._id)">View</button>
             </td>
