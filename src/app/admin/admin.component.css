@@ -13,5 +13,9 @@
   cursor: pointer;
 }
 
-main .content {
-  width: 100%;}
+main .sidebar{
+  width: 100%;
+position: fixed;
+height: 120vh !important;
+
+}
