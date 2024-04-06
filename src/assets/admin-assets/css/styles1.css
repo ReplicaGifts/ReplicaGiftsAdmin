@@ -376,7 +376,6 @@ header {
 
 .header__top-action:hover {
   color: var(--first-color);
-
 }
 
 .nav,
@@ -386,7 +385,6 @@ header {
   display: flex;
   align-items: center;
 }
-
 
 .nav {
   /* height: calc(var(--header-height) + 2.5rem); */
