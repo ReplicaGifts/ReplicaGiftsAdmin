@@ -4,13 +4,13 @@
     <div class="content-form" id="addProductForm">
       <table class="table order__table">
         <thead>
-          <th style="width: 4rem">SL.NO</th>
-          <th style="width: 12rem">Date</th>
+          <th style="width: 5em">SL.NO</th>
+          <th style="min-width: 12rem">Date</th>
           <th>Order Id</th>
-          <th style="width: 20rem">User</th>
-          <th style="width: 23rem">Amount</th>
-          <th style="width: 8rem">View</th>
-          <th style="width: 8rem">Action</th>
+          <th style="max-width: 20rem">User</th>
+          <th style="max-width: 23rem">Amount</th>
+          <th style="max-width: 8rem">View</th>
+          <th style="width: 8em">Action</th>
         </thead>
         <tbody>
           <tr *ngFor="let order of orders; let i = index">
