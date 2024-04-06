@@ -1,6 +1,6 @@
 <div class="content">
   <h4>Enquiry</h4>
-  <div class="content-data" >
+  <div class="content-data">
     <div class="content-form" id="addProductForm">
       <table class="table order__table">
         <thead>
@@ -18,7 +18,9 @@
             <td>{{ i + 1 }}</td>
             <td>{{ con.chreatedAt | date }}</td>
             <td>{{ con.name }}</td>
-            <td>{{ con.email }}</td>
+            <td>
+              <a href="mailto:{{ con.email }}">{{ con.email }}</a>
+            </td>
             <!-- <td>{{ con.phone }}</td> -->
             <td>{{ con.subject }}</td>
             <td>
@@ -58,7 +60,9 @@
             <td>{{ i + 1 }}</td>
             <td>{{ con.chreatedAt | date }}</td>
             <td>{{ con.name }}</td>
-            <td>{{ con.email }}</td>
+            <td>
+              <a href="mailto:{{ con.email }}">{{ con.email }}</a>
+            </td>
             <!-- <td>{{ con.phone }}</td> -->
             <td>{{ con.subject }}</td>
             <td>

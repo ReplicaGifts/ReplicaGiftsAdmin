@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from '../../service/product.service';
 import { CategoryService } from '../../service/category.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../../model/product.model';
 import { ProductViewComponent } from '../product-view/product-view.component';
 import Swal from 'sweetalert2';
@@ -17,7 +16,7 @@ import Swal from 'sweetalert2';
 })
 export class ProductComponent {
 
-  constructor(private product: ProductService, private category: CategoryService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private product: ProductService, private category: CategoryService) { }
   data: Product = {
     title: '',
     description: '',
@@ -156,7 +155,8 @@ export class ProductComponent {
 
       availablePrintSize: [{
         width: 0,
-        height: 1
+        height: 1,
+        // price: 0,
       }],
 
       availablePrintType: [""],

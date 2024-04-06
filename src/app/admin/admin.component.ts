@@ -44,7 +44,7 @@ export class AdminComponent {
   display = sessionStorage.getItem('display') ?? 'home'
 
   setDisabledState(name: string) {
-    if (name.includes('order')) {
+    if (name.includes('order') || name === 'home') {
 
       this.cart.checkNoOf();
     }
@@ -54,8 +54,8 @@ export class AdminComponent {
   }
 
   nav() {
-    this.display = "home"
-    this.router.navigate(['/admin'])
+    this.setDisabledState('status');
+    this.router.navigate(['/admin', 'orders-status'])
   }
 
 

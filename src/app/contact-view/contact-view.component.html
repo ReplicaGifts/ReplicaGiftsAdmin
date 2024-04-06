@@ -1,3 +1,7 @@
+<button (click)="goBack()" class="back-btn">
+  <i class="fa fa-arrow-left"></i> Back
+</button>
+
 <div class="container">
   <h4>Contact Details</h4>
   <table>
@@ -11,7 +15,9 @@
     </tr>
     <tr>
       <th>Email:</th>
-      <td>{{ data.email }}</td>
+      <td>
+        <a href="mailto:{{ data.email }}">{{ data.email }}</a>
+      </td>
     </tr>
   </table>
   <br />

@@ -15,7 +15,8 @@ export class Product {
     availablePrintSize!: [{
         _id?: any,
         width: 0,
-        height: 1
+        height: 1,
+        // price?: number
     }];
 
     totalrating?: number;

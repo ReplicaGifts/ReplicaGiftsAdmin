@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CartService } from '../../service/cart.service';
 import { Subject, takeUntil } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-order-view',
@@ -15,7 +16,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class OrderViewComponent {
 
-  constructor(private route: ActivatedRoute, private frames: CartService, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private frames: CartService, private http: HttpClient, private location: Location) { }
   private unsubscribe$: Subject<void> = new Subject<void>();
 
   frameId: any;
@@ -72,6 +73,10 @@ export class OrderViewComponent {
   }
   updateTrackId(id: any, tracking: any) {
     this.frames.updatetrackingId(id, tracking).subscribe(data => console.log(data));
+  }
+
+  goBack() {
+    this.location.back();
   }
 
 }
