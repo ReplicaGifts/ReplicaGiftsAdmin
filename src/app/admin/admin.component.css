@@ -6,7 +6,6 @@
   color: white;
   font-weight: bold;
   border-radius: 100%;
-
 }
 
 .pointer {
@@ -14,4 +13,13 @@
 }
 
 main .content {
-  width: 100%;}
+  width: 100%;
+}
+
+main .sidebar {
+  height: 100vh;
+}
+
+mn {
+  overflow-y: sroll;
+}
