@@ -86,7 +86,6 @@ export class OrderViewComponent {
       cancelButtonText: 'Cancel',
     }).then((result) => {
       if (result.isConfirmed) {
-       
         this.frames.updatetrackingId(id, tracking).subscribe(data => {
           console.log(data);
           Swal.fire('Success', 'Tracking ID updated successfully', 'success');
