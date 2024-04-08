@@ -2,6 +2,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { CartService } from '../../service/cart.service';
 import { Router } from '@angular/router';
+import { RouterService } from '../../service/router.service';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 export class DashboardComponent {
 
 
-  constructor(private order: CartService, private router: Router) { }
+  constructor(private order: CartService, private router: Router, private routerService: RouterService) { }
 
   orders: any[] = [];
   reorders: any[] = [];
@@ -20,6 +21,8 @@ export class DashboardComponent {
 
   ngOnInit() {
     this.order.getAllFrames().subscribe(frames => { this.orders = frames.recentlyAdded; this.reorders = frames.remainingOrders; console.log(frames); this.delivered = frames.delivered });
+    this.routerService.setRoute('status');
+
   }
 
   nav(id: any) {

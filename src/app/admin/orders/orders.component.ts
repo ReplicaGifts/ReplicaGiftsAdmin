@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { CartService } from '../../service/cart.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { RouterService } from '../../service/router.service';
 
 
 @Component({
@@ -14,12 +15,14 @@ import Swal from 'sweetalert2';
 })
 export class OrdersComponent {
 
-  constructor(private order: CartService, private router: Router) { }
+  constructor(private order: CartService, private router: Router, private routerService: RouterService) { }
 
   orders: any[] = [];
 
   ngOnInit() {
     this.get()
+    this.routerService.setRoute('order');
+
   }
 
   get() {

@@ -2,15 +2,15 @@
   <h4>Orders</h4>
   <div class="content-data">
     <div class="content-form" id="addProductForm">
-      <table class="table order__table">
+      <table class="table order__table overflow-x-scroll">
         <thead>
-          <th style="width: 4rem">SL.NO</th>
-          <th style="width: 12rem">Date</th>
-          <th>Order Id</th>
-          <th style="width: 20rem">User</th>
-          <th style="width: 23rem">Amount</th>
-          <th style="width: 8rem">View</th>
-          <th style="width: 8rem">Action</th>
+          <th style="width: 5em">SL.NO</th>
+          <th style="width: 10em; min-width: 8em">Date</th>
+          <th style="width: 20em">Order Id</th>
+          <th style="width: 20em; min-width: 10em">User</th>
+          <th style="width: 15em; min-width: 10em">Amount</th>
+          <th style="width: 8em; min-width: 8em">View</th>
+          <th style="width: 8em; min-width: 5em">Action</th>
         </thead>
         <tbody>
           <tr *ngFor="let order of orders; let i = index">

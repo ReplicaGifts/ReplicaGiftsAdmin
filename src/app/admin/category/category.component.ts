@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgFor, NgIf } from '@angular/common';
 import Swal from 'sweetalert2';
+import { RouterService } from '../../service/router.service';
 
 @Component({
   selector: 'app-category',
@@ -14,7 +15,7 @@ import Swal from 'sweetalert2';
 })
 export class CategoryComponent {
 
-  constructor(private category: CategoryService, private route: ActivatedRoute) { }
+  constructor(private category: CategoryService, private route: ActivatedRoute, private routerService: RouterService) { }
 
   categories: any[] = [];
   flag: boolean = false;
@@ -35,11 +36,15 @@ export class CategoryComponent {
 
 
     if (this.flag) {
-      this.category.getprintType().subscribe((category: any) => { this.categories = category })
+      this.category.getprintType().subscribe((category: any) => { this.categories = category });
+      this.routerService.setRoute('print')
+
 
     } else {
 
-      this.category.getCategoryOnly().subscribe((category: any) => { this.categories = category })
+      this.category.getCategoryOnly().subscribe((category: any) => { this.categories = category });
+      this.routerService.setRoute('cate')
+
     }
 
   }

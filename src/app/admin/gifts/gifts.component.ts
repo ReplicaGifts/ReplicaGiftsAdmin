@@ -3,6 +3,7 @@ import { GiftsService } from '../../service/gifts.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
+import { RouterService } from '../../service/router.service';
 @Component({
   selector: 'app-gifts',
   standalone: true,
@@ -12,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class GiftsComponent {
 
-  constructor(private giftsService: GiftsService) { }
+  constructor(private giftsService: GiftsService, private routerService: RouterService) { }
 
   data = {
     name: '',
@@ -30,6 +31,7 @@ export class GiftsComponent {
 
   ngOnInit() {
     this.get()
+    this.routerService.setRoute('gift');
 
 
   }
@@ -118,6 +120,8 @@ export class GiftsComponent {
 
       price: 1
     }
+
+    this.showUpdate = false;
   }
 
 }

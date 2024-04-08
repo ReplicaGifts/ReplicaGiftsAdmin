@@ -3,6 +3,7 @@ import { AdminAuthService } from '../../service/admin-auth.service';
 import { CommonModule, DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { RouterService } from '../../service/router.service';
 
 @Component({
   selector: 'app-contact',
@@ -13,13 +14,15 @@ import Swal from 'sweetalert2';
 })
 export class ContactComponent {
 
-  constructor(private conatctServicec: AdminAuthService, private router: Router) { }
+  constructor(private routerService: RouterService, private conatctServicec: AdminAuthService, private router: Router) { }
 
   contact: any[] = []
   contactViewed: any[] = []
 
   ngOnInit() {
     this.get()
+
+    this.routerService.setRoute('contact');
   }
 
   get() {
