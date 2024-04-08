@@ -6,6 +6,7 @@ import { CategoryService } from '../../service/category.service';
 import { Product } from '../../model/product.model';
 import { ProductViewComponent } from '../product-view/product-view.component';
 import Swal from 'sweetalert2';
+import { RouterService } from '../../service/router.service';
 
 @Component({
   selector: 'app-product',
@@ -16,7 +17,7 @@ import Swal from 'sweetalert2';
 })
 export class ProductComponent {
 
-  constructor(private product: ProductService, private category: CategoryService) { }
+  constructor(private product: ProductService, private category: CategoryService, private routerService: RouterService) { }
   data: Product = {
     title: '',
     description: '',
@@ -60,6 +61,7 @@ export class ProductComponent {
     this.get()
 
 
+    this.routerService.setRoute('product');
 
   }
 
