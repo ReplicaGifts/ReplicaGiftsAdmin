@@ -13,7 +13,21 @@
     </thead>
     <tbody>
       <tr>
-        <td><img src="{{ data.product.image }}" alt="" srcset="" /></td>
+        <td>
+          <img
+            *ngIf="!data.userImageModel"
+            src="{{ data.product.image }}"
+            alt=""
+            srcset=""
+          />
+
+          <img
+            *ngIf="data.userImageModel"
+            src="{{ data.userImageModel }}"
+            alt=""
+            srcset=""
+          />
+        </td>
         <td>{{ data.product.title }}</td>
         <td>{{ data.quantity }}</td>
         <td>{{ data.quantity * data.product.amount }}</td>
