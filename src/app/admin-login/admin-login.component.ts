@@ -28,7 +28,7 @@ export class AdminLoginComponent {
       this.auth.login({ email: this.email.value, password: this.password.value }).subscribe(user => {
         console.log(user);
         Swal.fire({
-          position: "top-end",
+          position: "center",
           icon: "success",
           title: "Login successed",
           showConfirmButton: false,

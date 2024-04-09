@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-order-view',
@@ -71,8 +72,29 @@ export class OrderViewComponent {
   update(id: any, selection: any) {
     this.frames.updateStauts(id, selection).subscribe(data => console.log(data));
   }
+
   updateTrackId(id: any, tracking: any) {
-    this.frames.updatetrackingId(id, tracking).subscribe(data => console.log(data));
+    // this.frames.updatetrackingId(id, tracking).subscribe(data => console.log(data));
+
+
+    Swal.fire({
+      title: 'Update Tracking ID',
+      text: 'Are you sure you want to update the tracking ID?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Update',
+      cancelButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.frames.updatetrackingId(id, tracking).subscribe(data => {
+          console.log(data);
+          Swal.fire('Success', 'Tracking ID updated successfully', 'success');
+        }, error => {
+          console.error(error);
+          Swal.fire('Error', 'Failed to update tracking ID', 'error');
+        });
+      }
+    });
   }
 
   goBack() {

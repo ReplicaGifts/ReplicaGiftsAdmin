@@ -1,5 +1,5 @@
 <button (click)="goBack()" class="back-btn">
-  <i class="fa fa-arrow-left"></i> Back
+  <i class="fa fa-arrow-left" style="padding-right: 6px;"></i> Back
 </button>
 <div class="container">
   <h4>Product:</h4>
@@ -103,6 +103,10 @@
     <tr>
       <th>country</th>
       <td>{{ data.deliveryAddress.country }}</td>
+    </tr>
+    <tr>
+      <th>state</th>
+      <td>{{ data.deliveryAddress.state }}</td>
     </tr>
     <tr>
       <th>postcode</th>
