@@ -16,10 +16,8 @@ main .content {
   width: 100%;
 }
 
-main .sidebar {
-  height: 100vh;
-}
-
 mn {
   overflow-y: sroll;
 }
+
+

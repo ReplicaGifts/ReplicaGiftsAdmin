@@ -1,121 +1,55 @@
 <main class="main">
-  <!--=============== BREADCRUMB ===============-->
-  <!-- <section class="breadcrumb">
-        <ul class="breadcrumb__list flex container">
-          <li><a href="index.html" class="breadcrumb__link">Home</a></li>
-          <li><span class="breadcrumb__link">></span></li>
-          <li><span class="breadcrumb__link">Account</span></li>
-        </ul>
-      </section> -->
 
   <div class="main-content">
     <div class="sidebar position-sticky sticky-top">
       <h3>
-        <img
-          class="icon-big"
-          src="../../../assets/admin-assets/view-dashboard.svg"
-          alt="Icon"
-        />Dashboard
+        <img class="icon-big" src="../../../assets/admin-assets/view-dashboard.svg" alt="Icon" />Dashboard
       </h3>
       <ul>
         <li>
-          <a
-            class="{{ display === 'home' ? 'active' : '' }}"
-            [routerLink]="['/admin']"
-            (click)="setDisabledState('home')"
-            ><img
-              class="footer__social-icon"
-              src="../../../assets/admin-assets/home.svg"
-              alt="Icon"
-            />Home</a
-          >
+          <a class="{{ display === 'home' ? 'active' : '' }}" [routerLink]="['/admin']"
+            (click)="setDisabledState('home')"><img class="footer__social-icon"
+              src="../../../assets/admin-assets/home.svg" alt="Icon" />Home</a>
         </li>
         <li>
-          <a
-            class="{{ display === 'status' ? 'active' : '' }}"
-            [routerLink]="['/admin', 'orders-status']"
-            (click)="setDisabledState('status')"
-          >
-            <img
-              class="footer__social-icon"
-              src="../../../assets/admin-assets/account-circle-outline.svg"
-              alt="Icon"
-            />Order Status</a
-          >
+          <a class="{{ display === 'status' ? 'active' : '' }}" [routerLink]="['/admin', 'orders-status']"
+            (click)="setDisabledState('status')">
+            <img class="footer__social-icon" src="../../../assets/admin-assets/account-circle-outline.svg"
+              alt="Icon" />Order Status</a>
         </li>
         <li>
-          <a
-            class="{{ display === 'order' ? 'active' : '' }}"
-            [routerLink]="['/admin', 'orders']"
-            (click)="setDisabledState('order')"
-          >
-            <img
-              class="footer__social-icon"
-              src="../../../assets/admin-assets/account-circle-outline.svg"
-              alt="Icon"
-            />Order</a
-          >
+          <a class="{{ display === 'order' ? 'active' : '' }}" [routerLink]="['/admin', 'orders']"
+            (click)="setDisabledState('order')">
+            <img class="footer__social-icon" src="../../../assets/admin-assets/account-circle-outline.svg"
+              alt="Icon" />Order</a>
         </li>
         <li>
-          <a
-            class="{{ display === 'product' ? 'active' : '' }}"
-            [routerLink]="['/admin', 'product-manipulate']"
-            (click)="setDisabledState('product')"
-            ><img
-              class="footer__social-icon"
-              src="../../../assets/admin-assets/put-out-the-chart-svgrepo-com.svg"
-              alt="Icon"
-            />Product</a
-          >
+          <a class="{{ display === 'product' ? 'active' : '' }}" [routerLink]="['/admin', 'product-manipulate']"
+            (click)="setDisabledState('product')"><img class="footer__social-icon"
+              src="../../../assets/admin-assets/put-out-the-chart-svgrepo-com.svg" alt="Icon" />Product</a>
         </li>
         <li>
-          <a
-            class="{{ display === 'cate' ? 'active' : '' }}"
-            [routerLink]="['/admin', 'category']"
-            (click)="setDisabledState('cate')"
-            ><img
-              class="footer__social-icon"
-              src="../../../assets/admin-assets/noun-category-861639.svg"
-              alt="Icon"
-            />Category</a
-          >
+          <a class="{{ display === 'cate' ? 'active' : '' }}" [routerLink]="['/admin', 'category']"
+            (click)="setDisabledState('cate')"><img class="footer__social-icon"
+              src="../../../assets/admin-assets/noun-category-861639.svg" alt="Icon" />Category</a>
         </li>
         <li>
-          <a
-            class="{{ display === 'print' ? 'active' : '' }} text-white"
-            (click)="setDisabledState('print'); navPrintType()"
-          >
-            <img
-              class="footer__social-icon"
-              src="../../../assets/admin-assets/print-svgrepo-com.svg"
-              alt="Icon"
-            />Print Type
+          <a class="{{ display === 'print' ? 'active' : '' }} text-white"
+            (click)="setDisabledState('print'); navPrintType()">
+            <img class="footer__social-icon" src="../../../assets/admin-assets/print-svgrepo-com.svg" alt="Icon" />Print
+            Type
           </a>
         </li>
         <li>
-          <a
-            class="{{ display === 'gift' ? 'active' : '' }}"
-            [routerLink]="['/admin', 'gifts']"
-            (click)="setDisabledState('gift')"
-            ><img
-              class="footer__social-icon"
-              src="../../../assets/admin-assets/file-multiple.svg"
-              alt="Icon"
-            />Gifts</a
-          >
+          <a class="{{ display === 'gift' ? 'active' : '' }}" [routerLink]="['/admin', 'gifts']"
+            (click)="setDisabledState('gift')"><img class="footer__social-icon"
+              src="../../../assets/admin-assets/file-multiple.svg" alt="Icon" />Gifts</a>
         </li>
         <li>
-          <a
-            class="{{ display === 'contact' ? 'active' : '' }}"
-            [routerLink]="['/admin', 'contact']"
-            (click)="setDisabledState('contact')"
-          >
-            <img
-              class="footer__social-icon"
-              src="../../../assets/admin-assets/icons8-contacts.svg"
-              alt="Icon"
-            />Contact</a
-          >
+          <a class="{{ display === 'contact' ? 'active' : '' }}" [routerLink]="['/admin', 'contact']"
+            (click)="setDisabledState('contact')">
+            <img class="footer__social-icon" src="../../../assets/admin-assets/icons8-contacts.svg"
+              alt="Icon" />Contact</a>
         </li>
       </ul>
     </div>
@@ -126,17 +60,7 @@
             <p class="onetext">REPLICA</p>
             <p class="twotext">GIFTS</p>
           </a>
-          <!-- <div class="header__top">
-                    <div class="header__container container">
-                        
-                    
-                        <div>
-                            <a href="login-register.html" class="header__top-action">
-                                Log In / Sign Up
-                            </a>
-                        </div>
-                    </div>
-                </div> -->
+       
         </nav>
         <div class="account-info">
           <div class="position-relative pointer" (click)="navCon()">
@@ -145,18 +69,10 @@
           </div>
           <div class="position-relative" (click)="nav()">
             <span class="badge" *ngIf="noOfOrder > 0">{{ noOfOrder }}</span>
-            <img
-              class="icon-sm"
-              src="../../../assets/admin-assets/211694_bell_icon.png"
-              alt="Notify"
-            />
+            <img class="icon-sm" src="../../../assets/admin-assets/211694_bell_icon.png" alt="Notify" />
           </div>
           <div class="img-cropper-sm">
-            <img
-              class="profile-pic-sm"
-              src="../../../assets/admin-assets/avatar-hombre-tupe.jpg"
-              alt="Profile Pic"
-            />
+            <img class="profile-pic-sm" src="../../../assets/admin-assets/avatar-hombre-tupe.jpg" alt="Profile Pic" />
           </div>
           <p class="account-name">{{ user?.username }}</p>
         </div>
@@ -167,3 +83,10 @@
     </div>
   </div>
 </main>
+
+
+
+
+
+
+

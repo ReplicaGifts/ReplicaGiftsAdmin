@@ -5,6 +5,7 @@
 
 body {
   /* overflow-x: hidden; */
+  width: 100%;
 }
 
 
@@ -2345,12 +2346,202 @@ background-color: #b0b0b0;
   font-size: var(--small-font-size);
 }
 
+
+main .main-content {
+  display: flex;
+  /* padding: 50px; */
+  /* padding-bottom: 60px; */
+}
+
+main .main-content h3 {
+  /* background-color: var(--title-color); */
+  color: white;
+  text-transform: uppercase;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.icon-big{
+ width: 40px;
+ height: 35px;
+ padding-right: 5px;
+}
+
+main .sidebar {
+  width: 25% !important;
+  height: 100vh;
+  /* padding: 5px; */
+  border: 1px solid rgba(236, 240, 241, 0.3);
+  background-color: var(--text-color);
+  /* border-radius: 4px; */
+}
+
+main .sidebar ul {
+  list-style: none;
+  padding: 10px;
+  padding-top: 30px;
+}
+
+main .sidebar ul li {
+  margin-bottom: 5px;
+}
+
+main .sidebar ul li a {
+  color: var(--body-color);
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 5px 8px;
+  margin-top: 10px;
+  font-size: 14px;
+  display: block;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.active,
+main .sidebar ul li a:hover {
+  background-color: var(--first-color);
+  color: var(--khaki) !important;
+}
+
+
+main .content {
+  width: 100% !important;
+  /* padding: 5px; */
+  /* border: 1px solid rgba(236, 240, 241, 0.3); */
+}
+
+main .dashboard .content-data {
+  display: block !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-row-gap: 50px;
+  grid-column-gap: 15px;
+  /* padding-left: 20px; */
+}
+
+main .dashboard .content-data .content-detail {
+  width: 100% !important;
+  height: 100%;
+  padding-bottom: 50px;
+}
+
+main .content .content-data {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+}
+
+main .content .content-data .content-form {
+  width: 100%;
+  border-right: 1px solid #eee;
+  padding-right: 10px;
+}
+
+main .content .content-data .content-detail {
+  width: 49%;
+  height: 100%;
+  /* padding-left: 10px; */
+}
+
+.form-group{
+ padding-top: 20px !important;
+}
+
+main h4 {
+  display: block;
+  color: white;
+  background-color: var(--text-color);
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+main form .form-group {
+  margin: 25px 0;
+  width: 100%;
+  padding-top: 20px;
+}
+
+main form label {
+  color: var(--text-color);
+  display: block;
+  margin-bottom: 6px;
+}
+
+main form .form-group input,
+main form .form-group select,
+main form .form-group textarea {
+  width: 100%;
+  padding: 12px 5px;
+  border: 1px solid var(--border-color-alt) !important;
+  border-radius: 3px;
+}
+
+main form input:focus,
+main form select:focus,
+main form textarea:focus {
+  outline: 1px solid var(--darkStaleGray);
+}
+
+main form .form-inline {
+  display: flex;
+  justify-content: space-between;
+}
+
+main form .form-inline .form-group {
+  width: 49%;
+}
+
+main form input[type="submit"] {
+  background-color: var(--first-color);
+  color: var(--darkStaleGray);
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  padding: 5px 8px;
+  margin-top: 20px;
+  display: block;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+main form input[type="submit"]:hover {
+  background-color: var(--darkStaleGray);
+  color: var(--khaki);
+}
+
+main table {
+  width: 100%;
+  border: 1px solid #eee;
+  border-collapse: collapse;
+}
+
+main table th {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #000;
+}
+
+main table td,
+main table th {
+  border: 1px solid #eee;
+  text-align: center;
+  padding: 5px 2px;
+
+}
+
+
+
+
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */
 @media screen and (max-width: 1400px) {
-  .container {
+
+  /* .container {
     max-width: 1140px;
-  }
+  } */
 
   .products__container,
   .showcase__container {
@@ -2360,12 +2551,14 @@ background-color: #b0b0b0;
   .accounts__container {
     grid-template-columns: 3fr 9fr;
   }
+
 }
 
 @media screen and (max-width: 1200px) {
-  .container {
+
+  /* .container {
     max-width: 960px;
-  }
+  } */
 
   .header__top {
     display: none;
@@ -2523,8 +2716,18 @@ background-color: #b0b0b0;
 
 /* For medium devices */
 @media screen and (max-width: 992px) {
-  .container {
+
+  /* .container {
     max-width: 776px;
+  } */
+
+  main .sidebar {
+    width: 100% !important;
+    height: 3000px;
+  
+    border: 1px solid rgba(236, 240, 241, 0.3);
+    background-color: var(--text-color);
+ 
   }
 
   .home__container,
@@ -2607,9 +2810,10 @@ background-color: #b0b0b0;
 }
 
 @media screen and (max-width: 768px) {
-  .container {
+
+  /* .container {
     max-width: 570px;
-  }
+  } */
 
   .products__container,
   .showcase__container,
@@ -2631,6 +2835,7 @@ background-color: #b0b0b0;
   .home__img {
     max-width: 300px;
   }
+
 }
 
 /* For small devices */
@@ -2711,6 +2916,7 @@ background-color: #b0b0b0;
 }
 
 @media screen and (max-width: 350px) {
+  
   .action__btn {
     width: 34px;
     height: 34px;
@@ -3047,193 +3253,3 @@ color: rgb(255, 89, 0) ;
   padding: 50px;
 } */
 
-
-main .main-content {
-  display: flex;
- 
-  /* padding: 50px; */
-  /* padding-bottom: 60px; */
-  
-}
-
-main .main-content h3 {
-  background-color: var(--title-color);
-  color: white;
-  text-transform: uppercase;
-  padding: 10px;
-  border-radius: 4px;
-}
-
-.icon-big{
- width: 40px;
- height: 35px;
- padding-right: 5px;
-}
-
-main .sidebar {
-  width: 25% !important;
-  height: 3100px;
-  /* padding: 5px; */
-  border: 1px solid rgba(236, 240, 241, 0.3);
-  background-color: var(--text-color);
-  /* border-radius: 4px; */
-}
-
-main .sidebar ul {
-  list-style: none;
-  padding: 10px;
-  padding-top: 30px;
-}
-
-main .sidebar ul li {
-  margin-bottom: 5px;
-}
-
-main .sidebar ul li a {
-  color: var(--body-color);
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 5px 8px;
-  margin-top: 10px;
-  font-size: 14px;
-  display: block;
-  font-weight: 800;
-  letter-spacing: 1px;
-}
-
-.active,
-main .sidebar ul li a:hover {
-  background-color: var(--first-color);
-  color: var(--khaki) !important;
-}
-
-main .content {
-  width: 100% !important;
-  /* padding: 5px; */
-  /* border: 1px solid rgba(236, 240, 241, 0.3); */
-}
-
-
-main .dashboard .content-data {
-  display: block !important;
-  grid-template-columns: 1fr 1fr !important;
-  grid-row-gap: 50px;
-  grid-column-gap: 15px;
-  padding-left: 20px;
-  
-}
-
-main .dashboard .content-data .content-detail {
-  width: 100% !important;
-  height: 100%;
-
-padding-bottom: 50px;
-}
-
-main .content .content-data {
- 
-  display: flex;
-  justify-content: space-between;
-}
-
-main .content .content-data .content-form {
-  width: 100%;
-  border-right: 1px solid #eee;
-  padding-right: 10px;
-}
-
-main .content .content-data .content-detail {
-  width: 49%;
-  height: 100%;
-  /* padding-left: 10px; */
-}
-
-.form-group{
- padding-top: 20px !important;
-}
-
-main h4 {
-  display: block;
-  color: white;
-  background-color: var(--text-color);
-  text-transform: uppercase;
-  font-size: 18px;
-  padding: 5px;
-  margin-bottom: 10px;
-}
-
-main form .form-group {
-  margin: 25px 0;
-  width: 100%;
-  padding-top: 20px;
-}
-
-main form label {
-  color: var(--text-color);
-  display: block;
-  margin-bottom: 6px;
-}
-
-main form .form-group input,
-main form .form-group select,
-main form .form-group textarea {
-  width: 100%;
-  padding: 12px 5px;
-  border: 1px solid var(--border-color-alt) !important;
-  border-radius: 3px;
-}
-
-main form input:focus,
-main form select:focus,
-main form textarea:focus {
-  outline: 1px solid var(--darkStaleGray);
-}
-
-main form .form-inline {
-  display: flex;
-  justify-content: space-between;
-}
-
-main form .form-inline .form-group {
-  width: 49%;
-}
-
-main form input[type="submit"] {
-  background-color: var(--first-color);
-  color: var(--darkStaleGray);
-  text-transform: uppercase;
-  text-decoration: none;
-  text-align: center;
-  padding: 5px 8px;
-  margin-top: 20px;
-  display: block;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-main form input[type="submit"]:hover {
-  background-color: var(--darkStaleGray);
-  color: var(--khaki);
-}
-
-main table {
-  width: 100%;
-  border: 1px solid #eee;
-  border-collapse: collapse;
-
-}
-
-main table th {
-  text-transform: uppercase;
-  font-size: 12px;
-  color: #000;
-}
-
-main table td,
-main table th {
-  border: 1px solid #eee;
-  text-align: center;
-  padding: 5px 2px;
-
-}

@@ -28,8 +28,6 @@ export class CategoryComponent {
       this.get();
     }
     )
-
-
   }
 
   get() {

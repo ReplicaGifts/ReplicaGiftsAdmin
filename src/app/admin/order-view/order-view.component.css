@@ -53,6 +53,12 @@ h2{
     padding: 10px;
     border-radius: 5px;
   }
+
+  .btn{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  }
   
   /* .btn-primary {
     background-color: #007bff;
