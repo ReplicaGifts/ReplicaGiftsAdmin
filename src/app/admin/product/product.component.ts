@@ -114,7 +114,7 @@ export class ProductComponent {
 
     this.product.edit(this.data, this.idToUpdate).subscribe(data => {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Product has been saved",
         showConfirmButton: false,
