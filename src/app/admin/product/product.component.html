@@ -170,7 +170,6 @@
             Add Info
           </button>
         </div>
-
         <br />
         <br />
         <strong>Available Size</strong>
@@ -295,7 +294,7 @@
               </td>
               <td>{{ product.amount }}</td>
               <td>
-                <a (click)="edit(product)"
+                <a (click)="edit(product)" onclick="scrollToTop()"
                   ><i class="fa fa-pencil-square px-4 text-success pointer"></i
                 ></a>
                 <a (click)="deleteProduct(product._id)"
