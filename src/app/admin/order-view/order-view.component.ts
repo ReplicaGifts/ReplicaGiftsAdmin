@@ -7,6 +7,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
+import { toggleSidebar } from '../../../main';
 
 @Component({
   selector: 'app-order-view',
@@ -15,6 +16,7 @@ import Swal from 'sweetalert2';
   templateUrl: './order-view.component.html',
   styleUrl: './order-view.component.css'
 })
+
 export class OrderViewComponent {
 
   constructor(private route: ActivatedRoute, private frames: CartService, private http: HttpClient, private location: Location) { }
@@ -45,6 +47,7 @@ export class OrderViewComponent {
         });
       }
     });
+    
   }
 
 
@@ -58,11 +61,9 @@ export class OrderViewComponent {
       const a = document.createElement('a');
       a.href = url;
       a.download = filename;
-
       // Programmatically click the anchor element to trigger download
       document.body.appendChild(a);
       a.click();
-
       // Clean up
       document.body.removeChild(a);
       URL.revokeObjectURL(url);

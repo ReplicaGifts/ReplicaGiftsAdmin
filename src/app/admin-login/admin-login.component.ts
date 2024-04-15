@@ -13,12 +13,13 @@ import Swal from 'sweetalert2';
   templateUrl: './admin-login.component.html',
   styleUrl: './admin-login.component.css'
 })
+
+
 export class AdminLoginComponent {
 
   show: boolean = false;
 
   constructor(private auth: AdminAuthService, private router: Router, private formBuilder: FormBuilder) { }
-
 
   email = new FormControl("", [Validators.required, Validators.email]);
   password = new FormControl("", Validators.required);
@@ -82,6 +83,11 @@ export class AdminLoginComponent {
   //   }
   // }
 
+  logout() {
+    // Clear session storage
+    sessionStorage.removeItem('admin');
 
+    this.router.navigate(['/login']);
+  }
 
 }

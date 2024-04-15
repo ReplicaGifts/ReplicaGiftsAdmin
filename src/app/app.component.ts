@@ -4,6 +4,9 @@ import { Router, RouterOutlet, NavigationStart, NavigationEnd } from '@angular/r
 import { AdminAuthService } from './service/admin-auth.service';
 import { CartService } from './service/cart.service';
 import { filter } from 'rxjs';
+import { Color } from '@kurkle/color';
+import { toggleSidebar } from '../main';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -11,6 +14,7 @@ import { filter } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
   title = 'ReplicaGifts';
   constructor(private router: Router, private apiService: AdminAuthService, private frame: CartService) { }
@@ -21,9 +25,7 @@ export class AppComponent {
       .subscribe(() => {
         this.apiService.checkNoOf()
         this.frame.checkNoOf()
+        toggleSidebar();
       });
   }
-
-
-
 }

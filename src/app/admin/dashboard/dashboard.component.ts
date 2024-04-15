@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { CartService } from '../../service/cart.service';
 import { Router } from '@angular/router';
 import { RouterService } from '../../service/router.service';
+import { toggleSidebar } from '../../../main';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -22,7 +23,7 @@ export class DashboardComponent {
   ngOnInit() {
     this.order.getAllFrames().subscribe(frames => { this.orders = frames.recentlyAdded; this.reorders = frames.remainingOrders; console.log(frames); this.delivered = frames.delivered });
     this.routerService.setRoute('status');
-
+    toggleSidebar();
   }
 
   nav(id: any) {

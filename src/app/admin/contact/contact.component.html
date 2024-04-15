@@ -1,8 +1,20 @@
+<div class="pagetitle">
+  <h1>Contacts</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item active">Contacts</li>
+    </ol>
+  </nav>
+</div>
+
+
+
 <div class="content">
   <h4>Enquiry</h4>
   <div class="content-data">
     <div class="content-form" id="addProductForm">
-      <table class="table">
+      <table class="table order__table">
         <thead>
           <th style="width: 4rem">Sl.NO</th>
           <th style="width: 9rem">Date</th>
@@ -36,12 +48,13 @@
       </table>
     </div>
   </div>
-  <br />
-  <br />
+  <br/>
+  <br/>
+  <br/>
   <h4>Viewed Enquiry</h4>
   <div class="content-data">
     <div class="content-form" id="addProductForm">
-      <table class="table">
+      <table class="table order__table">
         <thead>
           <th style="width: 4rem">Sl.NO</th>
           <th style="width: 9rem">Date</th>
@@ -63,7 +76,7 @@
             <!-- <td>{{ con.phone }}</td> -->
             <td>{{ con.subject }}</td>
             <td>
-              <button (click)="view(con._id)" class="btn1s active-link">
+              <button (click)="view(con._id)" class="btn1s active-link view">
                 Read
               </button>
             </td>

@@ -5,15 +5,18 @@ import { CartService } from '../service/cart.service';
 import { AdminAuthService } from '../service/admin-auth.service';
 import { NgIf } from '@angular/common';
 import { RouterService } from '../service/router.service';
+import { Color } from '@kurkle/color';
 
+import { AdminLoginComponent } from '../admin-login/admin-login.component';
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, NgIf],
+  imports: [RouterOutlet, RouterLink, NgIf, AdminLoginComponent],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
 export class AdminComponent {
+
 
   constructor(private router: Router, private cart: CartService, private admin: AdminAuthService, private routerService: RouterService) { }
 
@@ -35,7 +38,7 @@ export class AdminComponent {
     this.admin.noOfCantact.subscribe(result => { console.log(result); this.noOfConatct = result });
 
     this.routerService.route.subscribe(route => { this.display = route })
-
+   
   }
   navPrintType() {
     this.router.navigateByUrl('/admin/category?printType=true')
@@ -62,5 +65,11 @@ export class AdminComponent {
     this.router.navigate(['/admin', 'orders-status'])
   }
 
-
+  logout() {
+    // Clear session storage
+    sessionStorage.removeItem('admin');
+    // Add any other cleanup code here if needed
+    // Redirect to login page or any other appropriate page
+    this.router.navigate(['/login']); // Assuming your login page route is '/login'
+  }
 }

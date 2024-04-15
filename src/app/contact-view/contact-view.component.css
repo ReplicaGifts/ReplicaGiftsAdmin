@@ -15,3 +15,16 @@ td,
 th {
   text-align: left;
 }
+
+h4{
+  background-color: #2e2e2e;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.btn{
+  display: flex;
+align-items: center;
+justify-content: center;
+}

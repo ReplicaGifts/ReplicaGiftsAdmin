@@ -1,16 +1,27 @@
+<div class="pagetitle">
+  <h1>Orders</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item active">Orders</li>
+    </ol>
+  </nav>
+</div>
+
+
 <div class="content">
-  <h4>Orders</h4>
+  <!-- <h4>Orders</h4> -->
   <div class="content-data">
     <div class="content-form" id="addProductForm">
-      <table class="table">
+      <table class="table order__table">
         <thead>
           <th style="width: 5em">SL.NO</th>
-          <th style="width: 10em; min-width: 8em">Date</th>
-          <th style="width: 20em">Order Id</th>
-          <th style="width: 20em; min-width: 10em">User</th>
-          <th style="width: 15em; min-width: 10em">Amount</th>
-          <th style="width: 8em; min-width: 8em">View</th>
-          <th style="width: 8em; min-width: 5em">Action</th>
+          <th style="width: 10em;">Date</th>
+          <th style="width: 20em;">Order Id</th>
+          <th style="width: 20em;">User</th>
+          <th style="width: 15em;">Amount</th>
+          <th style="width: 8em;">View</th>
+          <th style="width: 8em;">Action</th>
         </thead>
         <tbody>
           <tr *ngFor="let order of orders; let i = index">
@@ -34,3 +45,6 @@
     </div>
   </div>
 </div>
+
+
+

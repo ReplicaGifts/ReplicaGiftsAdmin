@@ -1,10 +1,10 @@
-<button (click)="goBack()" class="back-btn">
+<button (click)="goBack()" class="back-btn btn">
   <i class="fa fa-arrow-left" style="padding-right: 6px;"></i> Back
 </button>
 
 <div class="container">
   <h4>Contact Details</h4>
-  <table>
+  <table class="order__table">
     <tr>
       <th>Name:</th>
       <td>{{ data.name }}</td>
@@ -22,15 +22,14 @@
   </table>
   <br />
   <br />
-
   <h4>Subject</h4>
-
-  <strong>{{ data.subject }}</strong>
-
-  <br />
-  <br />
-
+  <table class="order__table">
+  <tr><td>{{ data.subject }}</td></tr>
+ </table>
+  <br/>
+  <br/>
   <h4>Message</h4>
-
-  <p>{{ data.message }}</p>
+  <table class="order__table">
+    <tr><td>{{ data.message }}</td></tr>
+  </table>
 </div>

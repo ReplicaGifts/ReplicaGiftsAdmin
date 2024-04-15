@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { RouterService } from '../../service/router.service';
+import { toggleSidebar } from '../../../main';
 @Component({
   selector: 'app-gifts',
   standalone: true,
@@ -19,7 +20,6 @@ export class GiftsComponent {
     name: '',
     quantity: 1,
     thumbnail: '',
-
     price: 1
   }
 
@@ -33,7 +33,7 @@ export class GiftsComponent {
     this.get()
     this.routerService.setRoute('gift');
 
-
+    toggleSidebar();
   }
 
   get() {

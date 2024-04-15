@@ -1,10 +1,20 @@
-<button (click)="goBack()" class="back-btn">
+<div class="pagetitle">
+  <h1>Order-View</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item active">Order-View</li>
+    </ol>
+  </nav>
+</div>
+
+
+<button (click)="goBack()" class="back-btn btn">
   <i class="fa fa-arrow-left" style="padding-right: 6px;"></i> Back
 </button>
 <div class="container">
   <h4>Product:</h4>
-
-  <table class="table">
+  <table class="order__table">
     <thead>
       <th>Thumbnail</th>
       <th>Name</th>
@@ -39,7 +49,7 @@
 
   <h4 *ngIf="data.gifts.length > 0">Gift:</h4>
 
-  <table *ngIf="data.gifts.length > 0" class="table">
+  <table *ngIf="data.gifts.length > 0" class="order__table">
     <thead>
       <th>Thumbnail</th>
       <th>Name</th>
@@ -88,35 +98,45 @@
       <th>name</th>
       <td>{{ data.deliveryAddress.name }}</td>
     </tr>
+
     <tr>
       <th>email</th>
       <td>{{ data.deliveryAddress.email }}</td>
     </tr>
+
     <tr>
       <th>address</th>
       <td>{{ data.deliveryAddress.address }}</td>
     </tr>
+
     <tr>
       <th>city</th>
       <td>{{ data.deliveryAddress.city }}</td>
     </tr>
+
     <tr>
       <th>country</th>
       <td>{{ data.deliveryAddress.country }}</td>
     </tr>
+
     <tr>
       <th>state</th>
       <td>{{ data.deliveryAddress.state }}</td>
     </tr>
+
     <tr>
       <th>postcode</th>
       <td>{{ data.deliveryAddress.postcode }}</td>
     </tr>
+
     <tr>
       <th>phone</th>
       <td>{{ data.deliveryAddress.phone }}</td>
     </tr>
+
   </table>
+
+
 
   <h4>Delivery Status</h4>
   <select
@@ -130,7 +150,6 @@
     <option value="Out of Delivery">Out of Delivery</option>
     <option value="Delivered">Delivered</option>
   </select>
-
   <br />
   <br />
   <h4>Update Tracking ID</h4>
@@ -143,7 +162,7 @@
   />
   <br />
   <br />
-  <button class="btns" (click)="updateTrackId(data._id, tracking_id)">
-    Update trackingID
+  <button class="btn" (click)="updateTrackId(data._id, tracking_id)">
+    Update Tracking ID
   </button>
 </div>

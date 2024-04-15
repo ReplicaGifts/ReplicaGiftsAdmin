@@ -4,6 +4,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { RouterService } from '../../service/router.service';
+import { toggleSidebar } from '../../../main';
 
 @Component({
   selector: 'app-contact',
@@ -23,6 +24,7 @@ export class ContactComponent {
     this.get()
 
     this.routerService.setRoute('contact');
+    toggleSidebar();
   }
 
   get() {

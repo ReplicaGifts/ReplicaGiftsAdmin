@@ -7,6 +7,7 @@ import { Product } from '../../model/product.model';
 import { ProductViewComponent } from '../product-view/product-view.component';
 import Swal from 'sweetalert2';
 import { RouterService } from '../../service/router.service';
+import { toggleSidebar } from '../../../main';
 
 @Component({
   selector: 'app-product',
@@ -15,6 +16,7 @@ import { RouterService } from '../../service/router.service';
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
+
 export class ProductComponent {
 
   constructor(private product: ProductService, private category: CategoryService, private routerService: RouterService) { }
@@ -23,10 +25,8 @@ export class ProductComponent {
     description: '',
     price: 0,
     discount: 0,
-
     userImage: false,
     image: "",
-
     additionalInfo: [{
       title: '',
       description: ''
@@ -54,15 +54,12 @@ export class ProductComponent {
     this.category.getCategory().subscribe((data: any) => {
       this.categories = data;
       this.printType = data.filter((c: any) => c.printType);
-      console.log(data)
+      console.log(data);
     });
-
-
     this.get()
 
-
     this.routerService.setRoute('product');
-
+    toggleSidebar();
   }
 
   getSelectCategory() {
@@ -92,13 +89,10 @@ export class ProductComponent {
   }
 
 
-
   addFrame(e: any) {
     console.log(e);
     this.data.frame = e.target.files[0];
   }
-
-
 
 
   trackByFn(index: any, item: any) {
