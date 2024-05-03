@@ -4,10 +4,11 @@ import { CartService } from '../../service/cart.service';
 import { Router } from '@angular/router';
 import { RouterService } from '../../service/router.service';
 import { toggleSidebar } from '../../../main';
+import { OrderViewTableComponent } from '../order-view-table/order-view-table.component';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, DatePipe],
+  imports: [CommonModule, DatePipe, OrderViewTableComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })

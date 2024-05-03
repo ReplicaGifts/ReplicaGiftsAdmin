@@ -8,7 +8,6 @@
   </nav>
 </div>
 
-
 <div class="content">
   <h4>Add Gifts</h4>
   <div class="content-data">
@@ -75,31 +74,11 @@
         <button class="btn my-4" (click)="update()">Update</button>
         <button class="btn my-1" (click)="close()">Close</button>
       </ng-container>
-      <table class="table order__table">
-        <thead>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Quantity</th>
-          <th>Price</th>
-          <th style="width: 10rem">Action</th>
-        </thead>
-        <tbody>
-          <tr *ngFor="let cate of gifts">
-            <td>{{ cate._id }}</td>
-            <td>{{ cate.name }}</td>
-            <td>{{ cate.quantity }}</td>
-            <td>{{ cate.price }}</td>
-            <td>
-              <a (click)="edit(cate)"
-                ><i class="bi bi-pencil-square px-4 text-success pointer"></i
-              ></a>
-              <a (click)="delete(cate._id)"
-                ><i class="bi bi-trash px-4 text-danger pointer"></i
-              ></a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <app-gift-view-table
+        [gifts]="gifts"
+        (edit)="edit($event)"
+        (_delete)="delete($event)"
+      ></app-gift-view-table>
     </div>
   </div>
 </div>

@@ -8,46 +8,46 @@
       </h3>
       <ul>
         <li>
-          <a class="{{ display === 'home' ? 'active' : '' }}" [routerLink]="['/admin']"
+          <a class="{{ display === 'home' ? 'active' : 'collapsed' }}" [routerLink]="['/admin']"
             (click)="setDisabledState('home')"><img class="footer__social-icon"
               src="../../../assets/admin-assets/home.svg" alt="Icon" />Home</a>
         </li>
         <li>
-          <a class="{{ display === 'status' ? 'active' : '' }}" [routerLink]="['/admin', 'orders-status']"
+          <a class="{{ display === 'status' ? 'active' : 'collapsed' }}" [routerLink]="['/admin', 'orders-status']"
             (click)="setDisabledState('status')">
             <img class="footer__social-icon" src="../../../assets/admin-assets/account-circle-outline.svg"
               alt="Icon" />Order Status</a>
         </li>
         <li>
-          <a class="{{ display === 'order' ? 'active' : '' }}" [routerLink]="['/admin', 'orders']"
+          <a class="{{ display === 'order' ? 'active' : 'collapsed' }}" [routerLink]="['/admin', 'orders']"
             (click)="setDisabledState('order')">
             <img class="footer__social-icon" src="../../../assets/admin-assets/account-circle-outline.svg"
               alt="Icon" />Order</a>
         </li>
         <li>
-          <a class="{{ display === 'product' ? 'active' : '' }}" [routerLink]="['/admin', 'product-manipulate']"
+          <a class="{{ display === 'product' ? 'active' : 'collapsed' }}" [routerLink]="['/admin', 'product-manipulate']"
             (click)="setDisabledState('product')"><img class="footer__social-icon"
               src="../../../assets/admin-assets/put-out-the-chart-svgrepo-com.svg" alt="Icon" />Product</a>
         </li>
         <li>
-          <a class="{{ display === 'cate' ? 'active' : '' }}" [routerLink]="['/admin', 'category']"
+          <a class="{{ display === 'cate' ? 'active' : 'collapsed' }}" [routerLink]="['/admin', 'category']"
             (click)="setDisabledState('cate')"><img class="footer__social-icon"
               src="../../../assets/admin-assets/noun-category-861639.svg" alt="Icon" />Category</a>
         </li>
         <li>
-          <a class="{{ display === 'print' ? 'active' : '' }} text-white"
+          <a class="{{ display === 'print' ? 'active' : 'collapsed' }} text-white"
             (click)="setDisabledState('print'); navPrintType()">
             <img class="footer__social-icon" src="../../../assets/admin-assets/print-svgrepo-com.svg" alt="Icon" />Print
             Type
           </a>
         </li>
         <li>
-          <a class="{{ display === 'gift' ? 'active' : '' }}" [routerLink]="['/admin', 'gifts']"
+          <a class="{{ display === 'gift' ? 'active' : 'collapsed' }}" [routerLink]="['/admin', 'gifts']"
             (click)="setDisabledState('gift')"><img class="footer__social-icon"
               src="../../../assets/admin-assets/file-multiple.svg" alt="Icon" />Gifts</a>
         </li>
         <li>
-          <a class="{{ display === 'contact' ? 'active' : '' }}" [routerLink]="['/admin', 'contact']"
+          <a class="{{ display === 'contact' ? 'active' : 'collapsed' }}" [routerLink]="['/admin', 'contact']"
             (click)="setDisabledState('contact')">
             <img class="footer__social-icon" src="../../../assets/admin-assets/icons8-contacts.svg"
               alt="Icon" />Contact</a>
@@ -85,202 +85,231 @@
   </div>
 </main> -->
 
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="index.html" class="logo d-flex align-items-center">
+      <nav class="nav container">
+        <a [routerLink]="['admin']" class="nav__logo">
+          <p class="onetext">REPLICA</p>
+          <p class="twotext">GIFTS</p>
+        </a>
+      </nav>
+    </a>
 
+    <i class="bi bi-list toggle-sidebar-btn"></i>
+  </div>
+  <!-- End Logo -->
 
-
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
-
-    <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-    
-        <nav class="nav container">
-          <a [routerLink]="['admin']" class="nav__logo">
-            <p class="onetext">REPLICA</p>
-            <p class="twotext">GIFTS</p>
-          </a>
-        </nav>
-      </a>
-  
-      <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div><!-- End Logo -->
-
-    <!-- <div class="search-bar">
+  <!-- <div class="search-bar">
       <form class="search-form d-flex align-items-center" method="POST" action="#">
         <input type="text" name="query" placeholder="Search" title="Enter search keyword">
         <button type="submit" title="Search"><i class="bi bi-search"></i></button>
       </form>
     </div> -->
 
-    <nav class="header-nav ms-auto">
+  <nav class="header-nav ms-auto">
+    <ul class="d-flex align-items-center">
+      <li class="nav-item d-block d-lg-none">
+        <a class="nav-link nav-icon search-bar-toggle" href="#">
+          <i class="bi bi-search"></i>
+        </a>
+      </li>
+      <!-- End Search Icon-->
 
-      <ul class="d-flex align-items-center">
-
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <i class="bi bi-search"></i>
-          </a>
-        </li><!-- End Search Icon-->
-
-        <li class="nav-item dropdown">
-
-          <!-- <div class="position-relative pointer" (click)="navCon()">
+      <li class="nav-item dropdown">
+        <!-- <div class="position-relative pointer" (click)="navCon()">
             <span class="badge" *ngIf="noOfConatct > 0">{{ noOfConatct }}</span>
             <i class="bi bi-person-fill fs-4"></i>
           </div> -->
 
+        <a
+          class="nav-link nav-icon"
+          href="#"
+          data-bs-toggle="dropdown"
+          (click)="navCon()"
+        >
+          <i class="bi bi-bell"></i>
+          <span class="badge bg-primary badge-number" *ngIf="noOfConatct > 0">{{
+            noOfConatct
+          }}</span> </a
+        ><!-- End Notification Icon -->
+      </li>
+      <!-- End Notification Nav -->
 
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown" (click)="navCon()">
-            <i class="bi bi-bell"></i>
-            <span class="badge bg-primary badge-number" *ngIf="noOfConatct > 0">{{ noOfConatct }}</span>
-          </a><!-- End Notification Icon -->
-
-        </li><!-- End Notification Nav -->
-
-
-
-        <li class="nav-item dropdown">
-
-          <!-- <div class="position-relative" (click)="nav()">
+      <li class="nav-item dropdown">
+        <!-- <div class="position-relative" (click)="nav()">
             <span class="badge" *ngIf="noOfOrder > 0">{{ noOfOrder }}</span>
             <img class="icon-sm" src="../../../assets/admin-assets/211694_bell_icon.png" alt="Notify" />
           </div> -->
 
+        <a
+          class="nav-link nav-icon"
+          href="#"
+          data-bs-toggle="dropdown"
+          (click)="nav()"
+        >
+          <i class="bi bi-chat-left-text"></i>
+          <span class="badge bg-success badge-number" *ngIf="noOfOrder > 0">{{
+            noOfOrder
+          }}</span> </a
+        ><!-- End Messages Icon -->
+      </li>
+      <!-- End Messages Nav -->
 
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown" (click)="nav()">
-            <i class="bi bi-chat-left-text"></i>
-            <span class="badge bg-success badge-number" *ngIf="noOfOrder > 0">{{ noOfOrder }}</span>
-          </a><!-- End Messages Icon -->
+      <li class="nav-item dropdown pe-3">
+        <a
+          class="nav-link nav-profile d-flex align-items-center pe-0"
+          href="#"
+          data-bs-toggle="dropdown"
+        >
+          <img
+            src="assets/img/profile-img.jpg"
+            alt="Profile"
+            class="rounded-circle"
+          />
+          <span class="d-none d-md-block dropdown-toggle ps-2">{{
+            user?.username
+          }}</span> </a
+        ><!-- End Profile Iamge Icon -->
 
-        </li><!-- End Messages Nav -->
-
-
-
-        <li class="nav-item dropdown pe-3">
-
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">{{ user?.username }}</span>
-          </a><!-- End Profile Iamge Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-           
-            <!-- <li>
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+          <!-- <li>
               <hr class="dropdown-divider">
             </li> -->
 
-            <!-- <li>
+          <!-- <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
             </li> -->
-         
-            <!-- <li>
+
+          <!-- <li>
               <hr class="dropdown-divider">
             </li> -->
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-box-arrow-right"></i>
-                <span (click)="logout()">Sign Out</span>
-              </a>
-            </li>
-        
-          </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
-
-      </ul>
-    </nav><!-- End Icons Navigation -->
-
-
-
-
-  </header><!-- End Header -->
-
-  <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
-
-    <ul class="sidebar-nav" id="sidebar-nav">
-
-      <li class="nav-item">
-        <a class="nav-link" class="{{ display === 'home' ? 'active' : '' }}" [routerLink]="['/admin']"
-        (click)="setDisabledState('home')">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" class="{{ display === 'status' ? 'active' : '' }}" [routerLink]="['/admin', 'orders-status']"
-        (click)="setDisabledState('status')">
-          <i class="bi bi-journal-text"></i><span>Order Status</span>
-        </a>
-      </li><!-- End Forms Nav -->
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" class="{{ display === 'order' ? 'active' : '' }}" [routerLink]="['/admin', 'orders']"
-        (click)="setDisabledState('order')">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Order</span>
-        </a>
-      </li><!-- End Tables Nav -->
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" class="{{ display === 'product' ? 'active' : '' }}" [routerLink]="['/admin', 'product-manipulate']"
-        (click)="setDisabledState('product')">
-          <i class="bi bi-bar-chart"></i><span>Products</span>
-        </a>
-      </li><!-- End Charts Nav -->
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" class="{{ display === 'cate' ? 'active' : '' }}" [routerLink]="['/admin', 'category']"
-        (click)="setDisabledState('cate')">
-        <i class="bi-card-list"></i><span>Category</span>
-        </a>
-      </li><!-- End Icons Nav -->
-
-
-      <!-- <li class="nav-heading">Pages</li> -->
-      <li class="nav-item">
-        <a class="nav-link collapsed"  class="{{ display === 'print' ? 'active' : '' }}"
-        (click)="setDisabledState('print'); navPrintType()">
-        <i class="bi-printer"></i>
-          <span>Print Type</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" class="{{ display === 'gift' ? 'active' : '' }}" [routerLink]="['/admin', 'gifts']"
-        (click)="setDisabledState('gift')">
-          <i class="bi bi-card-list"></i>
-          <span>Gifts</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      
-      <li class="nav-item">
-        <a class="nav-link collapsed" class="{{ display === 'contact' ? 'active' : '' }}" [routerLink]="['/admin', 'contact']"
-        (click)="setDisabledState('contact')">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+              <i class="bi bi-box-arrow-right"></i>
+              <span (click)="logout()">Sign Out</span>
+            </a>
+          </li>
+        </ul>
+        <!-- End Profile Dropdown Items -->
+      </li>
+      <!-- End Profile Nav -->
     </ul>
-  </aside>
+  </nav>
+  <!-- End Icons Navigation -->
+</header>
+<!-- End Header -->
 
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <a
+        class="nav-link {{ display === 'home' ? 'active' : 'collapsed' }}"
+        [routerLink]="['/admin']"
+        (click)="setDisabledState('home')"
+      >
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <!-- End Dashboard Nav -->
 
+    <li class="nav-item">
+      <a
+        data-bs-target="#forms-nav"
+        data-bs-toggle="collapse"
+        class="nav-link  {{ display === 'status' ? 'active' : 'collapsed' }}"
+        [routerLink]="['/admin', 'orders-status']"
+        (click)="setDisabledState('status')"
+      >
+        <i class="bi bi-journal-text"></i><span>Order Status</span>
+      </a>
+    </li>
+    <!-- End Forms Nav -->
 
-  <main id="main" class="main">
- 
+    <li class="nav-item">
+      <a
+        data-bs-target="#tables-nav"
+        data-bs-toggle="collapse"
+        class="nav-link  {{ display === 'order' ? 'active' : 'collapsed' }}"
+        [routerLink]="['/admin', 'orders']"
+        (click)="setDisabledState('order')"
+      >
+        <i class="bi bi-layout-text-window-reverse"></i><span>Order</span>
+      </a>
+    </li>
+    <!-- End Tables Nav -->
 
-    <router-outlet></router-outlet>
+    <li class="nav-item">
+      <a
+        data-bs-target="#charts-nav"
+        data-bs-toggle="collapse"
+        class="nav-link  {{ display === 'product' ? 'active' : 'collapsed' }}"
+        [routerLink]="['/admin', 'product-manipulate']"
+        (click)="setDisabledState('product')"
+      >
+        <i class="bi bi-bar-chart"></i><span>Products</span>
+      </a>
+    </li>
+    <!-- End Charts Nav -->
 
+    <li class="nav-item">
+      <a
+        data-bs-target="#icons-nav"
+        data-bs-toggle="collapse"
+        class="nav-link  {{ display === 'cate' ? 'active' : 'collapsed' }}"
+        [routerLink]="['/admin', 'category']"
+        (click)="setDisabledState('cate')"
+      >
+        <i class="bi-card-list"></i><span>Category</span>
+      </a>
+    </li>
+    <!-- End Icons Nav -->
 
-          </main>
+    <!-- <li class="nav-heading">Pages</li> -->
+    <li class="nav-item">
+      <a
+        class="nav-link  {{ display === 'print' ? 'active' : 'collapsed' }}"
+        (click)="setDisabledState('print'); navPrintType()"
+      >
+        <i class="bi-printer"></i>
+        <span>Print Type</span>
+      </a>
+    </li>
+    <!-- End Profile Page Nav -->
 
+    <li class="nav-item">
+      <a
+        class="nav-link  {{ display === 'gift' ? 'active' : 'collapsed' }}"
+        [routerLink]="['/admin', 'gifts']"
+        (click)="setDisabledState('gift')"
+      >
+        <i class="bi bi-card-list"></i>
+        <span>Gifts</span>
+      </a>
+    </li>
+    <!-- End Register Page Nav -->
 
+    <li class="nav-item">
+      <a
+        class="nav-link  {{ display === 'contact' ? 'active' : 'collapsed' }}"
+        [routerLink]="['/admin', 'contact']"
+        (click)="setDisabledState('contact')"
+      >
+        <i class="bi bi-envelope"></i>
+        <span>Contact</span>
+      </a>
+    </li>
+    <!-- End Contact Page Nav -->
+  </ul>
+</aside>
+
+<main id="main" class="main">
+  <router-outlet></router-outlet>
+</main>

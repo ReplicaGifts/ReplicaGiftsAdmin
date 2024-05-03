@@ -38,7 +38,7 @@ export class AdminComponent {
     this.admin.noOfCantact.subscribe(result => { console.log(result); this.noOfConatct = result });
 
     this.routerService.route.subscribe(route => { this.display = route })
-   
+
   }
   navPrintType() {
     this.router.navigateByUrl('/admin/category?printType=true')

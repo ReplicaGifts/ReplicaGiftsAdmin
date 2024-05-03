@@ -1,0 +1,25 @@
+<table class="table order__table">
+  <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th *ngIf="!isHome" style="width: 10rem">Action</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cate of gifts">
+      <td>{{ cate._id }}</td>
+      <td>{{ cate.name }}</td>
+      <td>{{ cate.quantity }}</td>
+      <td>{{ cate.price }}</td>
+      <td *ngIf="!isHome">
+        <a (click)="edit.emit(cate)"
+          ><i class="bi bi-pencil-square px-4 text-success pointer"></i
+        ></a>
+        <a (click)="_delete.emit(cate._id)"
+          ><i class="bi bi-trash px-4 text-danger pointer"></i
+        ></a>
+      </td>
+    </tr>
+  </tbody>
+</table>

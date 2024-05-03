@@ -1,2 +1,108 @@
-<p>WELCOME TO <span style="color: rgb(255, 111, 0) !important; padding-left: 20px; padding-right: 20px;">ADMIN
-        PANEL</span></p>
+<div class="container-fluid p-5 bg-transparent ht">
+  <div class="row gap-3 m-5">
+    <div class="card py-2 col-3">
+      <h4>Total Sales</h4>
+      <p>{{ total_sales | currency : "INR" }}</p>
+    </div>
+    <div class="card py-2 col-3">
+      <h4>Today Sales</h4>
+      <p>{{ today_sales_amt | currency : "INR" }}</p>
+    </div>
+    <div class="card py-2 col-lg-3">
+      <h4>Monthly Sales</h4>
+      <p>{{ monthly_sales_amt | currency : "INR" }}</p>
+    </div>
+  </div>
+
+  <div class="position-relative mt-5 pt-5">
+    <div class="d-flex gap-4">
+      <div style="display: block">
+        <canvas
+          baseChart
+          style="height: 500px; width: 1000px"
+          [type]="'line'"
+          [data]="lineChartData"
+          [options]="lineChartOptions"
+          [legend]="lineChartLegend"
+        >
+        </canvas>
+      </div>
+      <div style="display: block">
+        <canvas
+          baseChart
+          style="height: 500px; width: 500px"
+          [type]="'doughnut'"
+          [data]="pieChartData"
+          [options]="pieChartOptions"
+        >
+        </canvas>
+      </div>
+    </div>
+
+    <div class="position-absolute control-group">
+      <div class="d-flex gap-2" role="group">
+        <button
+          type="button"
+          class=" light-btn {{
+            selected_interval === 'month' ? 'active-btn' : ''
+          }}"
+          (click)="selected_interval = 'month'; updateChart()"
+        >
+          1M
+        </button>
+        <button
+          type="button"
+          class=" light-btn {{
+            selected_interval === 'year' ? 'active-btn' : ''
+          }}"
+          (click)="selected_interval = 'year'; updateChart()"
+        >
+          1Y
+        </button>
+      </div>
+
+      <div class="d-flex gap-2">
+        <div>
+          <select
+            class="form-select"
+            id="yearSelect"
+            [(ngModel)]="selected_year"
+            (change)="updateChart()"
+          >
+            <option *ngFor="let year of years" [value]="year">
+              {{ year }}
+            </option>
+          </select>
+        </div>
+        <div *ngIf="selected_interval === 'month'">
+          <select
+            class="form-select"
+            id="monthSelect"
+            [(ngModel)]="selected_month"
+            (change)="updateChart()"
+          >
+            <option *ngFor="let mnth of month; let i = index" [value]="i">
+              {{ mnth }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-lg-6">
+      <app-order-view-table [orders]="recent_order"> </app-order-view-table>
+    </div>
+    <div class="col-lg-6">
+      <div class="content-detail">
+        <h4>Out of staock gifts</h4>
+
+        <app-gift-view-table
+          [gifts]="gifts_"
+          [isHome]="true"
+        ></app-gift-view-table>
+      </div>
+    </div>
+  </div>
+</div>
