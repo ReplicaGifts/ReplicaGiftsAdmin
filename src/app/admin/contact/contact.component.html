@@ -8,8 +8,6 @@
   </nav>
 </div>
 
-
-
 <div class="content">
   <h4>Enquiry</h4>
   <div class="content-data">
@@ -41,17 +39,45 @@
               </button>
             </td>
             <td>
-              <i (click)="deleteProduct(con._id)" class="fa fa-trash text-danger"></i>
+              <i
+                (click)="deleteProduct(con._id)"
+                class="fa fa-trash text-danger"
+              ></i>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-  <br/>
-  <br/>
-  <br/>
+  <br />
+  <br />
+  <br />
   <h4>Viewed Enquiry</h4>
+
+  <div class="my-4">
+    <div class="card">
+      <div class="fs-6 d-flex justify-content-between">
+        <div>
+          {{ (pagenation.page - 1) * pagenation.limit }} -
+          {{
+            pagenation.page * pagenation.limit > totalOrders
+              ? totalOrders
+              : pagenation.page * pagenation.limit
+          }}
+          of {{ totalOrders }}
+        </div>
+        <div class="d-flex gap-3">
+          <button class="btn-arow" (click)="prev()">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button class="btn-arow" (click)="next()">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="content-data">
     <div class="content-form" id="addProductForm">
       <table class="table order__table">
@@ -81,7 +107,10 @@
               </button>
             </td>
             <td>
-              <i (click)="deleteProduct(con._id)" class="fa fa-trash text-danger"></i>
+              <i
+                (click)="deleteProduct(con._id)"
+                class="fa fa-trash text-danger"
+              ></i>
             </td>
           </tr>
         </tbody>
@@ -89,8 +118,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-

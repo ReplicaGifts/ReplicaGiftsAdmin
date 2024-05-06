@@ -64,7 +64,16 @@ export class CartService {
     let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}` }) };
 
 
+
     return this.http.get<any>(this.baseUrl + "/api/frame/orders", _options)
+  }
+  filterOrder(data: any) {
+    const token: string | null = sessionStorage.getItem('admin');
+    let _options = { headers: new HttpHeaders({ 'Authorization': `Bearer ${token ? JSON.parse(token).token : ""}` }) };
+
+
+
+    return this.http.get<any>("http://localhost:3000/api/frame/filter", { params: data, ..._options })
   }
 
   isNotified(id: string) {

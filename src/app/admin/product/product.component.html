@@ -1,4 +1,3 @@
-
 <div class="pagetitle">
   <h1>Products</h1>
   <nav>
@@ -260,53 +259,75 @@
         </button>
         <ng-container *ngIf="showUpdate">
           <button class="btn" (click)="update()">Update</button>
-          <br>
+          <br />
           <button class="btn" (click)="close()">Close</button>
         </ng-container>
         <!-- <button class="w-100 mb-3" onclick="addSize()">Add Size</button> -->
       </div>
     </div>
 
-
-
-
     <div style="margin-top: 60px">
-
       <div class="content">
-      <h4>Product List</h4>
-      <!-- <div class="table-responsive"> -->
+        <h4>Product List</h4>
+        <div class="my-4">
+          <div class="card">
+            <div class="fs-6 d-flex justify-content-between">
+              <div>
+                {{ (pagenation.page - 1) * pagenation.limit }} -
+                {{
+                  pagenation.page * pagenation.limit > totalOrders
+                    ? totalOrders
+                    : pagenation.page * pagenation.limit
+                }}
+                of {{ totalOrders }}
+              </div>
+              <div class="d-flex gap-3">
+                <button class="btn-arow" (click)="prev()">
+                  <i class="fa-solid fa-angle-left"></i>
+                </button>
+                <button class="btn-arow" (click)="next()">
+                  <i class="fa-solid fa-angle-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="table-responsive"> -->
         <div class="content-data">
           <div class="content-form" id="addProductForm">
-        <table class="table order__table">
-          <thead class="">
-            <th style="width: 4rem">SL.NO</th>
-            <th>product Id</th>
-            <th>product name</th>
-            <th style="width: 8rem">price</th>
-            <th>Action</th>
-          </thead>
-          <tbody>
-            <tr *ngFor="let product of products; let i = index">
-              <td>{{ i + 1 }}</td>
-              <td>{{ product._id }}</td>
-              <td class="btn-link pointer">
-                {{ product.title }}
-              </td>
-              <td>{{ product.amount }}</td>
-              <td>
-                <a (click)="edit(product)" onclick="scrollToTop()"
-                  ><i class="fa fa-pencil-square px-4 text-success pointer"></i
-                ></a>
-                <a (click)="deleteProduct(product._id)"
-                  ><i class="fa fa-trash px-4 text-danger pointer"></i
-                ></a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+            <table class="table order__table">
+              <thead class="">
+                <th style="width: 4rem">SL.NO</th>
+                <th>product Id</th>
+                <th>product name</th>
+                <th style="width: 8rem">price</th>
+                <th>Action</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of products; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ product._id }}</td>
+                  <td class="btn-link pointer">
+                    {{ product.title }}
+                  </td>
+                  <td>{{ product.amount }}</td>
+                  <td>
+                    <a (click)="edit(product)" onclick="scrollToTop()"
+                      ><i
+                        class="fa fa-pencil-square px-4 text-success pointer"
+                      ></i
+                    ></a>
+                    <a (click)="deleteProduct(product._id)"
+                      ><i class="fa fa-trash px-4 text-danger pointer"></i
+                    ></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  </div></div>
-  </div>
+</div>
 <!-- </div> -->

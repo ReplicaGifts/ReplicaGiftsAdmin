@@ -1,10 +1,21 @@
-.order__table tbody td{
-    background-color: #e2e2e2;
-  }
+.order__table tbody td {
+  background-color: #e2e2e2;
+}
 
+button {
+  border: none;
+  color: orange;
+}
 
+.card {
+  padding: 20px;
+}
 
-  button{
-    border: none;
-    color: orange;
+.btn-arow {
+  border-radius: 50%;
+  width: 30px;
+}
+
+.btn-arow:hover i {
+  color: grey;
 }

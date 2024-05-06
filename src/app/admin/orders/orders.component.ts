@@ -17,6 +17,13 @@ export class OrdersComponent {
 
   constructor(private order: CartService, private router: Router, private routerService: RouterService) { }
 
+  pagenation = {
+    page: 1,
+    limit: 30,
+  }
+
+  totalOrders = 0;
+
   orders: any[] = [];
 
   ngOnInit() {
@@ -27,7 +34,12 @@ export class OrdersComponent {
 
   get() {
 
-    this.order.getAllFrames().subscribe(frames => { this.orders = frames.orders; console.log(frames) });
+    this.order.filterOrder(this.pagenation).subscribe(frames => {
+      this.orders = frames.orders;
+      this.totalOrders = frames.totalOrder;
+
+      console.log(frames)
+    });
   }
 
   nav(id: any) {
@@ -50,7 +62,7 @@ export class OrdersComponent {
           console.log(data);
 
 
-          this.get()
+          this.get();
           Swal.fire({
             title: "Deleted!",
             text: "Your file has been deleted.",
@@ -61,6 +73,23 @@ export class OrdersComponent {
         });
       }
     });
+  }
+
+  next() {
+    if (this.pagenation.page * this.pagenation.limit < this.totalOrders) {
+      ++this.pagenation.page;
+      this.get();
+    }
+
+  }
+
+  prev() {
+
+    if (this.pagenation.page > 1) {
+      --this.pagenation.page
+      this.get();
+    }
+
   }
 
 }

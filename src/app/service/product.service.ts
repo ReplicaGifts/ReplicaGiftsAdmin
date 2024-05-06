@@ -49,6 +49,9 @@ export class ProductService {
   }
 
 
+  getFilter(data: any) {
+    return this.http.get<Product[]>(this.baseUrl + "/api/products/page", { params: data });
+  }
   get() {
     return this.http.get<Product[]>(this.baseUrl + "/api/products/all");
   }

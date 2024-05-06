@@ -43,6 +43,14 @@ export class ProductComponent {
 
   }
 
+
+  pagenation = {
+    page: 1,
+    limit: 20,
+  }
+
+  totalOrders = 0;
+
   selected_category: boolean = false;
 
 
@@ -55,8 +63,8 @@ export class ProductComponent {
       this.categories = data;
       this.printType = data.filter((c: any) => c.printType);
       console.log(data);
+      this.get()
     });
-    this.get()
 
     this.routerService.setRoute('product');
     toggleSidebar();
@@ -72,9 +80,9 @@ export class ProductComponent {
 
 
   get() {
-    this.product.get().subscribe((data: Product[]) => {
-      this.products = data;
-      console.log(data)
+    this.product.getFilter(this.pagenation).subscribe((data: any) => {
+      this.products = data.product;
+      this.totalOrders = data.totalProduct;
     });
   }
 
@@ -222,6 +230,24 @@ export class ProductComponent {
         });
       }
     });
+  }
+
+
+  next() {
+    if (this.pagenation.page * this.pagenation.limit < this.totalOrders) {
+      ++this.pagenation.page;
+      this.get();
+    }
+
+  }
+
+  prev() {
+
+    if (this.pagenation.page > 1) {
+      --this.pagenation.page
+      this.get();
+    }
+
   }
 
 }

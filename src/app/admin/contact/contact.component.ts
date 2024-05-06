@@ -17,20 +17,36 @@ export class ContactComponent {
 
   constructor(private routerService: RouterService, private conatctServicec: AdminAuthService, private router: Router) { }
 
+  pagenation = {
+    page: 1,
+    limit: 20,
+  }
+
+  totalOrders = 0;
+
+
   contact: any[] = []
   contactViewed: any[] = []
 
   ngOnInit() {
-    this.get()
+    this.getN()
 
     this.routerService.setRoute('contact');
     toggleSidebar();
   }
 
-  get() {
+  getN() {
     this.conatctServicec.conatct().subscribe((contact: any) => {
       this.contact = contact.recentlyAdded;
-      this.contactViewed = contact.viewed
+      this.get()
+    });
+  }
+
+  get() {
+    this.conatctServicec.conatctFilter(this.pagenation).subscribe((contact: any) => {
+      console.log('contact', contact)
+      this.contactViewed = contact.contact;
+      this.totalOrders = contact.totalContact;
     });
   }
 
@@ -66,5 +82,23 @@ export class ContactComponent {
       }
     });
   }
+
+  next() {
+    if (this.pagenation.page * this.pagenation.limit < this.totalOrders) {
+      ++this.pagenation.page;
+      this.get();
+    }
+
+  }
+
+  prev() {
+
+    if (this.pagenation.page > 1) {
+      --this.pagenation.page
+      this.get();
+    }
+
+  }
+
 
 }

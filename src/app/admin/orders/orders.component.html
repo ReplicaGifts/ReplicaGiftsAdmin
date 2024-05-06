@@ -8,6 +8,24 @@
   </nav>
 </div>
 
+<div class="my-4">
+  <div class="card">
+    <div class="fs-6 d-flex justify-content-between">
+      <div>
+        {{ (pagenation.page - 1) * pagenation.limit }} -
+        {{ pagenation.page * pagenation.limit }} of {{ totalOrders }}
+      </div>
+      <div class="d-flex gap-3">
+        <button class="btn-arow" (click)="prev()">
+          <i class="fa-solid fa-angle-left"></i>
+        </button>
+        <button class="btn-arow" (click)="next()">
+          <i class="fa-solid fa-angle-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="content">
   <!-- <h4>Orders</h4> -->
@@ -16,12 +34,12 @@
       <table class="table order__table">
         <thead>
           <th style="width: 5em">SL.NO</th>
-          <th style="width: 10em;">Date</th>
-          <th style="width: 20em;">Order Id</th>
-          <th style="width: 20em;">User</th>
-          <th style="width: 15em;">Amount</th>
-          <th style="width: 8em;">View</th>
-          <th style="width: 8em;">Action</th>
+          <th style="width: 10em">Date</th>
+          <th style="width: 20em">Order Id</th>
+          <th style="width: 20em">User</th>
+          <th style="width: 15em">Amount</th>
+          <th style="width: 8em">View</th>
+          <th style="width: 8em">Action</th>
         </thead>
         <tbody>
           <tr *ngFor="let order of orders; let i = index">
@@ -45,6 +63,3 @@
     </div>
   </div>
 </div>
-
-
-
