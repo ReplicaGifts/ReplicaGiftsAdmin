@@ -73,7 +73,7 @@ export class CartService {
 
 
 
-    return this.http.get<any>("http://localhost:3000/api/frame/filter", { params: data, ..._options })
+    return this.http.get<any>(this.baseUrl + "/api/frame/filter", { params: data, ..._options })
   }
 
   isNotified(id: string) {
