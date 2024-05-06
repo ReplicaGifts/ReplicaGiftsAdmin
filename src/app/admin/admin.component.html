@@ -225,7 +225,7 @@
         data-bs-target="#forms-nav"
         data-bs-toggle="collapse"
         class="nav-link  {{ display === 'status' ? 'active' : 'collapsed' }}"
-        [routerLink]="['/admin', 'orders-status']"
+        [routerLink]="['/admin', 'orders']"
         (click)="setDisabledState('status')"
       >
         <i class="bi bi-journal-text"></i><span>Order Status</span>
@@ -233,17 +233,17 @@
     </li>
     <!-- End Forms Nav -->
 
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a
         data-bs-target="#tables-nav"
         data-bs-toggle="collapse"
         class="nav-link  {{ display === 'order' ? 'active' : 'collapsed' }}"
-        [routerLink]="['/admin', 'orders']"
+
         (click)="setDisabledState('order')"
       >
         <i class="bi bi-layout-text-window-reverse"></i><span>Order</span>
       </a>
-    </li>
+    </li> -->
     <!-- End Tables Nav -->
 
     <li class="nav-item">

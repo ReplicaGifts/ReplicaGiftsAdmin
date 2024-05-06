@@ -1,15 +1,17 @@
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule, DatePipe, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { CartService } from '../../service/cart.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { RouterService } from '../../service/router.service';
+import { FormsModule } from '@angular/forms';
+import { OrderViewTableComponent } from '../order-view-table/order-view-table.component';
 
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [CommonModule, DatePipe],
+  imports: [CommonModule, DatePipe, FormsModule, UpperCasePipe, OrderViewTableComponent],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.css'
 })
@@ -17,15 +19,16 @@ export class OrdersComponent {
 
   constructor(private order: CartService, private router: Router, private routerService: RouterService) { }
 
+
+  totalOrders = 0;
+  statusOptions = ['recent', 'viewed', 'succeeded'];
+  orders: any[] = [];
+
   pagenation = {
     page: 1,
     limit: 30,
+    status: this.statusOptions[0]
   }
-
-  totalOrders = 0;
-
-  orders: any[] = [];
-
   ngOnInit() {
     this.get()
     this.routerService.setRoute('order');
@@ -36,7 +39,7 @@ export class OrdersComponent {
 
     this.order.filterOrder(this.pagenation).subscribe(frames => {
       this.orders = frames.orders;
-      this.totalOrders = frames.totalOrder;
+      this.totalOrders = frames.count;
 
       console.log(frames)
     });

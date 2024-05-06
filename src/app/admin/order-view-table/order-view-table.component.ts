@@ -16,7 +16,7 @@ export class OrderViewTableComponent {
 
   @Input() action: boolean = false;
 
-  @Input() title: string = 'Recent Order'
+  @Input() title: string | boolean = 'Recent Order'
 
   @Input() isHome: boolean = false;
 

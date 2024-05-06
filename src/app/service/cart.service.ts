@@ -12,8 +12,8 @@ export class CartService {
   noOfOrder = new BehaviorSubject<number>(0);
 
 
-  baseUrl = "https://replicagiftsbackend.onrender.com"
-  // baseUrl = "http://localhost:3000"
+  // baseUrl = "https://replicagiftsbackend.onrender.com"
+  baseUrl = "http://localhost:3000"
 
 
   addFrame(frameDeatails: any, gifts: any, id: any) {
@@ -73,7 +73,7 @@ export class CartService {
 
 
 
-    return this.http.get<any>(this.baseUrl + "/api/frame/filter", { params: data, ..._options })
+    return this.http.get<any>(this.baseUrl + "/api/frame/orders", { params: data, ..._options })
   }
 
   isNotified(id: string) {
