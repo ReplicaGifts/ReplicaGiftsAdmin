@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavigationExtras, Router, RouterLink } from '@angular/router';
 import { CartService } from '../service/cart.service';
@@ -17,6 +17,19 @@ import { AdminLoginComponent } from '../admin-login/admin-login.component';
 })
 export class AdminComponent {
 
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event?: any) {
+    this.getScreenSize();
+  }
+
+  private getScreenSize() {
+    // Check if the screen is mobile (adjust threshold as needed)
+    this.isMobile = window.innerWidth <= 768;
+    console.log(`Is mobile screen? ${this.isMobile}`);
+  }
+
+  isMobile = false;
 
   constructor(private router: Router, private cart: CartService, private admin: AdminAuthService, private routerService: RouterService) { }
 
@@ -39,6 +52,7 @@ export class AdminComponent {
 
     this.routerService.route.subscribe(route => { this.display = route })
 
+
   }
   navPrintType() {
     this.router.navigateByUrl('/admin/category?printType=true')
@@ -58,6 +72,8 @@ export class AdminComponent {
 
     // sessionStorage.setItem('display', name);
     // this.display = name;
+    if (this.isMobile)
+      this.toggle()
   }
 
   nav() {
@@ -72,4 +88,23 @@ export class AdminComponent {
     // Redirect to login page or any other appropriate page
     this.router.navigate(['/login']); // Assuming your login page route is '/login'
   }
+
+
+  toggle() {
+
+    const select = (el: string, all = false): Element[] => {
+      el = el.trim();
+      if (all) {
+        return Array.from(document.querySelectorAll(el));
+      } else {
+        const element = document.querySelector(el);
+        return element ? [element] : [];
+      }
+    };
+
+
+    const body = select('body')[0] as HTMLElement;
+    body.classList.toggle('toggle-sidebar');
+  }
+
 }

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminAuthService } from '../service/admin-auth.service';
 import { Location } from '@angular/common';
-import { toggleSidebar } from '../../main';
 
 @Component({
   selector: 'app-contact-view',
@@ -27,7 +26,6 @@ export class ContactViewComponent {
 
       this.contact.viewedConatct(id).subscribe((contact: any) => this.data = contact.contact);
     });
-    toggleSidebar();
   }
 
   goBack() {

@@ -305,7 +305,9 @@
               </thead>
               <tbody>
                 <tr *ngFor="let product of products; let i = index">
-                  <td>{{ i + 1 }}</td>
+                  <td>
+                    {{ i + 1 + pagenation.limit * (pagenation.page - 1) }}
+                  </td>
                   <td>{{ product._id }}</td>
                   <td class="btn-link pointer">
                     {{ product.title }}

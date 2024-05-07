@@ -7,7 +7,6 @@ import { Product } from '../../model/product.model';
 import { ProductViewComponent } from '../product-view/product-view.component';
 import Swal from 'sweetalert2';
 import { RouterService } from '../../service/router.service';
-import { toggleSidebar } from '../../../main';
 
 @Component({
   selector: 'app-product',
@@ -67,7 +66,6 @@ export class ProductComponent {
     });
 
     this.routerService.setRoute('product');
-    toggleSidebar();
   }
 
   getSelectCategory() {

@@ -31,7 +31,7 @@ export class OrdersComponent {
   }
   ngOnInit() {
     this.get()
-    this.routerService.setRoute('order');
+    this.routerService.setRoute('status');
 
   }
 

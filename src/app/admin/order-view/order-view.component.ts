@@ -7,7 +7,6 @@ import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
-import { toggleSidebar } from '../../../main';
 
 @Component({
   selector: 'app-order-view',
@@ -47,7 +46,7 @@ export class OrderViewComponent {
         });
       }
     });
-    
+
   }
 
 

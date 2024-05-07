@@ -4,12 +4,12 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { RouterService } from '../../service/router.service';
-import { toggleSidebar } from '../../../main';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, DatePipe],
+  imports: [CommonModule, DatePipe, FormsModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
@@ -17,10 +17,14 @@ export class ContactComponent {
 
   constructor(private routerService: RouterService, private conatctServicec: AdminAuthService, private router: Router) { }
 
+  statusOptions = ['recent', 'viewed'];
+
   pagenation = {
     page: 1,
     limit: 20,
+    status: this.statusOptions[0]
   }
+
 
   totalOrders = 0;
 
@@ -29,24 +33,16 @@ export class ContactComponent {
   contactViewed: any[] = []
 
   ngOnInit() {
-    this.getN()
+    this.get()
 
     this.routerService.setRoute('contact');
-    toggleSidebar();
-  }
-
-  getN() {
-    this.conatctServicec.conatct().subscribe((contact: any) => {
-      this.contact = contact.recentlyAdded;
-      this.get()
-    });
   }
 
   get() {
     this.conatctServicec.conatctFilter(this.pagenation).subscribe((contact: any) => {
       console.log('contact', contact)
       this.contactViewed = contact.contact;
-      this.totalOrders = contact.totalContact;
+      this.totalOrders = contact.count;
     });
   }
 

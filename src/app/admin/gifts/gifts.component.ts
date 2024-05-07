@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { RouterService } from '../../service/router.service';
-import { toggleSidebar } from '../../../main';
 import { GiftViewTableComponent } from '../gift-view-table/gift-view-table.component';
 @Component({
   selector: 'app-gifts',
@@ -34,7 +33,6 @@ export class GiftsComponent {
     this.get()
     this.routerService.setRoute('gift');
 
-    toggleSidebar();
   }
 
   get() {

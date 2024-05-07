@@ -45,11 +45,9 @@ export class AdminAuthService {
     this.router.navigate(['/']);
   }
 
-  conatct() {
-    return this.http.get(this.baseUrl + "/api/admin/contact")
-  }
+
   conatctFilter(data: any) {
-    return this.http.get(this.baseUrl + "/api/admin/contact/filter", { params: data })
+    return this.http.get(this.baseUrl + "/api/admin/contact", { params: data })
   }
 
   delete(id: string) {

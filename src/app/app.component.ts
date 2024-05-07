@@ -5,7 +5,6 @@ import { AdminAuthService } from './service/admin-auth.service';
 import { CartService } from './service/cart.service';
 import { filter } from 'rxjs';
 import { Color } from '@kurkle/color';
-import { toggleSidebar } from '../main';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +24,6 @@ export class AppComponent {
       .subscribe(() => {
         this.apiService.checkNoOf()
         this.frame.checkNoOf()
-        toggleSidebar();
       });
   }
 }
